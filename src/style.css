@@ -4,7 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    background-image: url('../public/Async.png');
+    background-image: url('../public/fetch.png');
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -91,31 +91,34 @@ button {
 .sidebar {
     position: fixed;
     top: 0;
-    left: -300px;
+    right: -300px;
+    /* Changed from left: -300px */
     width: 300px;
     height: 100%;
     background-color: #333;
-    transition: left 0.3s ease;
+    transition: right 0.3s ease;
+    /* Changed from left 0.3s ease */
     color: white;
 }
 
+
 .sidebar.open {
-    left: 0;
+    right: 0;
+    /* Changed from left: 0 */
 }
+
 
 /* Open button styles */
 #openBtn {
     position: fixed;
     top: 10px;
-    left: 20px;
+    right: 20px;
     background-color: transparent;
     transition: left 0.3s ease;
     padding: 5px 10px;
-    /* Add padding to button */
     border: none;
-    /* Remove default border */
     cursor: pointer;
-    /* Add cursor pointer */
+
 }
 
 #openBtn img {
@@ -132,7 +135,7 @@ button {
 
 /* Open button when the sidebar is open */
 #openBtn.open {
-    left: 300px;
+    right: 300px;
 }
 
 /* Responsive styles */
@@ -164,6 +167,7 @@ button {
     .nav-list {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
     }
 
     .nav-item {

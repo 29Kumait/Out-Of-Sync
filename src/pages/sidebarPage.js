@@ -18,5 +18,12 @@ export const initializeSidebar = () => {
     [sidebar, openBtn].forEach((el) => toggle(el, "open"));
     [openIcon, closeIcon].forEach((el) => toggle(el, "hidden"));
     isOpen = !isOpen;
+
+    // DOM background image
+    if (isOpen) {
+      document.body.style.backgroundImage = "url('../public/Fetc.png')";
+    } else {
+      document.body.style.backgroundImage = "url('../public/Fet.png')";
+    }
   });
 };
