@@ -15,6 +15,16 @@ body {
     min-height: 100vh;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .nav {
     font-size: 17px;
     font-weight: 1000;
@@ -23,7 +33,6 @@ body {
     align-items: center;
     padding: 20px;
     background-color: rgb(116, 200, 200);
-    color: #0071e3;
 }
 
 
@@ -41,7 +50,7 @@ body {
 
 
 
-button {
+nav button {
     cursor: pointer;
     background: #0071e3;
     color: #fff;
@@ -61,16 +70,6 @@ button {
     display: none;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 .nav-item {
     margin: 0 15px;
     padding: 10px;
@@ -85,30 +84,27 @@ button {
 }
 
 .nav-item:hover {
-    background-color: #555;
+    background-color: rgb(58, 113, 113);
 }
 
 .sidebar {
     position: fixed;
     top: 0;
     right: -300px;
-    /* Changed from left: -300px */
     width: 300px;
     height: 100%;
     background-color: #333;
     transition: right 0.3s ease;
-    /* Changed from left 0.3s ease */
-    color: white;
+
 }
 
 
 .sidebar.open {
     right: 0;
-    /* Changed from left: 0 */
 }
 
 
-/* Open button styles */
+/* Open sidebar-ico styles */
 #openBtn {
     position: fixed;
     top: 10px;
@@ -121,14 +117,12 @@ button {
 
 }
 
+/* #menu-icon, */
 #openBtn img {
     max-width: 29px;
-    /* Set maximum width for icons */
     vertical-align: middle;
-    /* Align icons vertically */
 }
 
-/* Hidden class for toggling visibility */
 .hidden {
     display: none;
 }
@@ -167,7 +161,7 @@ button {
     .nav-list {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 
     .nav-item {
@@ -179,3 +173,15 @@ button {
         padding: 40px;
     }
 }
+
+/* Temporary  */
+
+/* .nav {
+   
+    border: 2px solid red;
+}
+
+.sidebar {
+   
+    border: 2px solid blue;
+} */
