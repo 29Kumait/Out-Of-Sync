@@ -9,5 +9,5 @@ export const MENU_TOGGLE_ID = "menu-toggle";
 export const SIDEBAR_ID = "sidebar";
 export const OPEN_BTN_ID = "openBtn";
 
-// export const MAIN_ID = "main";
-// export const FOOTER_ID = "footer";
+export const MAIN_ID = "main";
+export const FOOTER_ID = "footer";

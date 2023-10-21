@@ -39,7 +39,7 @@ body {
 /* rgb(84, 140, 140); */
 .menu-toggle {
     display: none;
-    background-color: #0071e3;
+    background-color: rgb(41, 151, 255);
     border: none;
     cursor: pointer;
     padding: 10px;
@@ -52,8 +52,8 @@ body {
 
 nav button {
     cursor: pointer;
-    background: #0071e3;
-    color: #fff;
+    background: rgb(41, 151, 255);
+    color: rgba(255, 255, 255, .8);
     border: none;
     border-radius: 980px;
     font-size: 17px;
@@ -79,7 +79,7 @@ nav button {
 
 .nav-link {
     text-decoration: none;
-    color: #fff;
+    color: rgba(255, 255, 255, .8);
     font-weight: 400;
 }
 
@@ -93,9 +93,9 @@ nav button {
     right: -300px;
     width: 300px;
     height: 100%;
-    background-color: #333;
+    background-color: rgba(22, 22, 23, .8);
     transition: right 0.3s ease;
-
+    transition: color .32s cubic-bezier(.4, 0, .6, 1)
 }
 
 

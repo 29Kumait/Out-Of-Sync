@@ -43,9 +43,5 @@ export const attachMenuToggleListener = () => {
 
 // export const attachMenuToggleListener = () => {
 //   const element = document.getElementById(MENU_TOGGLE_ID);
-//   if (element) {
-//     element.addEventListener("click", toggleNavList);
-//   } else {
-//     console.error(`Element with ID ${MENU_TOGGLE_ID} not found.`);
-//   }
+//   element.addEventListener("click", toggleNavList);
 // };
