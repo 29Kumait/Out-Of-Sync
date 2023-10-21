@@ -11,3 +11,6 @@ export const OPEN_BTN_ID = "openBtn";
 
 export const MAIN_ID = "main";
 export const FOOTER_ID = "footer";
+
+export const FETCH_ARTWORK_LINK_ID = "fetch-artwork";
+export const TEMPERATURE_DISPLAY_ID = "temperature-display";

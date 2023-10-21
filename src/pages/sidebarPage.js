@@ -1,6 +1,12 @@
 // sidebarPage.js
 import { sidebarSetUp } from "../views/sidebarView.js";
-import { USER_INTERFACE_ID, SIDEBAR_ID, OPEN_BTN_ID } from "../constants.js";
+import {
+  USER_INTERFACE_ID,
+  SIDEBAR_ID,
+  OPEN_BTN_ID,
+  // FETCH_ARTWORK_LINK_ID,
+} from "../constants.js";
+import { populateSidebar } from "../views/sidebarView.js";
 
 const toggleClasses = (elements, classNames) =>
   elements.forEach((el, i) => el?.classList.toggle(classNames[i]));
@@ -9,22 +15,25 @@ export const initializeSidebar = () => {
   document
     .getElementById(USER_INTERFACE_ID)
     ?.insertAdjacentHTML("beforeend", sidebarSetUp());
-
+  populateSidebar();
   const [sidebar, openBtn] = [SIDEBAR_ID, OPEN_BTN_ID].map((id) =>
     document.getElementById(id)
   );
+  // transition effect
+  sidebar.style.transition = "all 1s ease";
   const [openIcon, closeIcon] = openBtn?.querySelectorAll("img") || [];
-
+  document.body.classList.add("fade-transition");
   let isOpen = false;
-
+  document.body.classList.add("fade-transition");
   openBtn?.addEventListener("click", () => {
     toggleClasses([sidebar, openBtn], ["open", "open"]);
     toggleClasses([openIcon, closeIcon], ["hidden", "hidden"]);
-
     isOpen = !isOpen;
-    document.body.style.backgroundImage = isOpen
-      ? "url('../public/Fetc.png')"
-      : "url('../public/Fet.png')";
+    setTimeout(() => {
+      document.body.style.backgroundImage = isOpen
+        ? "url('../public/Fetc.png')"
+        : "url('../public/Fet.png')";
+    }, 300); // 300ms delay
   });
 
   const setSidebarButtonPosition = () => {
@@ -38,6 +47,8 @@ export const initializeSidebar = () => {
   window.addEventListener("load", setSidebarButtonPosition);
   window.addEventListener("resize", setSidebarButtonPosition);
 };
+
+// // Placeholder for the displayFetchedArtworkPage function
 
 // // sidebarPage.js
 // import { sidebarSetUp } from "../views/sidebarView.js";
