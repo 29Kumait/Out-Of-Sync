@@ -4,7 +4,7 @@ import {
   TEMPERATURE_DISPLAY_ID,
   TEMPERATURE_CITY_ID,
 } from "../constants.js";
-import { displayWeather, fetchWeatherData } from "../api/weatherAPI.js";
+import { displayWeather, cityWeather } from "../api/weatherAPI.js";
 
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
@@ -31,18 +31,8 @@ export const initializeWeatherPage = () => {
      `;
 
     mainContent.insertAdjacentHTML("beforeend", weatherPage);
-    document
-      .getElementById("fetch-weather-btn")
-      .addEventListener("click", async () => {
-        const city = document.getElementById("city-input").value;
-        if (city) {
-          const result = await fetchWeatherData(city);
-          console.log(result);
-        } else {
-          console.log("Please enter a city.");
-        }
-      });
 
     displayWeather();
+    cityWeather();
   });
 };

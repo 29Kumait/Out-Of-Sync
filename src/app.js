@@ -24,6 +24,7 @@ const initializeApp = () => {
   ui.insertAdjacentHTML("beforeend", renderFooter());
 
   initializeWeatherPage();
+
   // fetchArtworkImage();
   // fetchUserSets();
 };

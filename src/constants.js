@@ -15,6 +15,6 @@ export const FOOTER_ID = "footer";
 export const WEATHER_PAGE_ICON_LINK_ID = "weather-page-link";
 
 export const FETCH_ARTWORK_LINK_ID = "fetch-artwork";
-export const TEMPERATURE_DISPLAY_ID = "temperature-display";
 
+export const TEMPERATURE_DISPLAY_ID = "temperature-display";
 export const TEMPERATURE_CITY_ID = "temperature-city";

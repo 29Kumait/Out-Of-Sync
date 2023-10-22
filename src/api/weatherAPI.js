@@ -1,4 +1,4 @@
-import { TEMPERATURE_DISPLAY_ID } from "../constants.js";
+import { TEMPERATURE_DISPLAY_ID, TEMPERATURE_CITY_ID } from "../constants.js";
 
 // 1: Fetching weather
 async function fetchWeather() {
@@ -32,8 +32,6 @@ export async function displayWeather() {
 // ``const apiKey = "9fb7eaa1d74f42cd16922223a39b68f9";``
 
 // 2: Fetching weather part 2
-//
-
 export async function fetchWeatherData(city) {
   const API_KEY = "9fb7eaa1d74f42cd16922223a39b68f9";
   try {
@@ -49,4 +47,19 @@ export async function fetchWeatherData(city) {
     console.error(error);
     return "Error fetching weather data";
   }
+}
+
+export async function cityWeather() {
+  const temperatureElementCity = document
+    .getElementById(TEMPERATURE_CITY_ID)
+    .addEventListener("click", async () => {
+      const city = document.getElementById("city-input").value;
+      if (city) {
+        const result = await fetchWeatherData(city);
+        console.log(result);
+      } else {
+        console.log("No City's Entered");
+      }
+    });
+  return temperatureElementCity;
 }
