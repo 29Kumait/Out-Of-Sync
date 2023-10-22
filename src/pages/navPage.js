@@ -8,13 +8,6 @@ export const populateNavItems = (navItems) => {
       const liElement = document.createElement("li");
       liElement.className = "nav-item";
       liElement.innerHTML = `<a class="nav-link" href="#">${item}</a>`;
-
-      /*if (item === 'Home') {
-        goToHomePage();
-       document.body.style.backgroundImage =  "url('../public/fetch.png')"
-      } else if (item === 'About') { to do } */
-
-      // liElement.addEventListener("click", item === "Home" ? goHome : null);
       liElement.addEventListener(
         "click",
         () =>
@@ -22,7 +15,6 @@ export const populateNavItems = (navItems) => {
           (goHome(),
           (document.body.style.backgroundImage = "url('../public/fetch.png')"))
       );
-
       ulElement.appendChild(liElement);
     });
   }
@@ -42,3 +34,10 @@ const goHome = () => {
   const mainContent = document.getElementById(MAIN_ID);
   mainContent.innerHTML = "";
 };
+
+/*for me to remember modern modification line 13
+      if (item === 'Home') {
+        goToHomePage();
+       document.body.style.backgroundImage =  "url('../public/fetch.png')"
+      } else if (item === 'About') { to do } */
+// liElement.addEventListener("click", item === "Home" ? goHome : null);
