@@ -31,3 +31,4 @@ export const LON_LAT_FEATURE_SELECT_ID = "lonLat-feature-select";
 
 export const MUSEUM_PAGE_ICON_LINK_ID = "museum-page-link";
 export const ARTWORK_SECTION_ID = "artworkSection";
+// export const ART_SEARCH_RESULT_ID = "search-result";

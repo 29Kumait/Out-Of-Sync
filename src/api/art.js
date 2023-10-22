@@ -1,7 +1,7 @@
 import { ARTWORK_SECTION_ID } from "../constants.js";
 const apiKey = "eXVjKRhm";
-const objectNumber = "SK-A-1196";
-export async function fetchArtworkImage() {
+// const objectNumber = "SK-A-1196";
+export async function fetchArtworkImage(objectNumber) {
   try {
     const url = `https://www.rijksmuseum.nl/api/en/collection/${objectNumber}/tiles?key=${apiKey}`;
     const response = await fetch(url);
@@ -17,22 +17,22 @@ export async function fetchArtworkImage() {
     container.style.position = "relative";
     container.style.width = `${level.width}px`;
     container.style.height = `${level.height}px`;
-
+    container.style.margin = "20px";
     let maxX = 0;
     let maxY = 0;
+    tiles.sort((a, b) => a.y - b.y || a.x - b.x); // Sort by y, then by x
 
     tiles.forEach((tile) => {
       const imgElement = document.createElement("img");
-
       imgElement.src = tile.url;
       imgElement.style.position = "absolute";
       imgElement.style.left = `${tile.x * 256}px`;
       imgElement.style.top = `${tile.y * 256}px`;
-
+      imgElement.width = 256; // Optional, based on your requirements
+      imgElement.height = 256; // Optional, based on your requirements
       // Calculate the maximum x and y positions to set container dimensions
       maxX = Math.max(maxX, tile.x * 256 + 256); // 256 is the tile width
       maxY = Math.max(maxY, tile.y * 256 + 256); // 256 is the tile height
-
       container.appendChild(imgElement);
     });
     container.style.width = `${maxX}px`;
@@ -43,4 +43,31 @@ export async function fetchArtworkImage() {
   } catch (error) {
     console.error("An error occurred:", error);
   }
+}
+
+export async function fetchArtSearch() {
+  const query = document.getElementById("searchInput").value;
+  const apiKey = "eXVjKRhm";
+  const url = `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&q=${query}`;
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  displaySearchResults(data.artObjects);
+}
+
+export function displaySearchResults(artObjects) {
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+  // Limit the number of artworks to display
+  const limitedArtObjects = artObjects.slice(0, 3);
+  artObjects.forEach((art) => {
+    const artDiv = document.createElement("div");
+    artDiv.innerHTML = `
+      <h3>${art.title}</h3>
+      <p>${art.principalOrFirstMaker}</p>
+      <img src="${art.webImage.url}" alt="${art.title}">
+    `;
+    resultsDiv.appendChild(artDiv);
+  });
 }
