@@ -18,3 +18,7 @@ export const FETCH_ARTWORK_LINK_ID = "fetch-artwork";
 
 export const TEMPERATURE_DISPLAY_ID = "temperature-display";
 export const TEMPERATURE_CITY_ID = "temperature-city";
+
+export const FETCH_WEATHER_BTN_ID = "fetch-weather-btn";
+export const CITY_INPUT_ID = "city-input";
+export const WEATHER_RESULT_ID = "weather-result";

@@ -33,4 +33,3 @@ const initializeApp = () => {
 document.addEventListener("DOMContentLoaded", () => {
   initializeApp();
 });
-// convert Kelvin to Celsius

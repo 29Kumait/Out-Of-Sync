@@ -1,4 +1,9 @@
-import { TEMPERATURE_DISPLAY_ID, TEMPERATURE_CITY_ID } from "../constants.js";
+import {
+  TEMPERATURE_DISPLAY_ID,
+  FETCH_WEATHER_BTN_ID,
+  CITY_INPUT_ID,
+  WEATHER_RESULT_ID,
+} from "../constants.js";
 
 // 1: Fetching weather
 async function fetchWeather() {
@@ -49,17 +54,36 @@ export async function fetchWeatherData(city) {
 }
 
 export async function cityWeather() {
-  const temperatureElementCity = document
-    .getElementById(TEMPERATURE_CITY_ID)
-    .addEventListener("click", async () => {
-      const city = document.getElementById("city-input").value;
+  document
+    .getElementById(FETCH_WEATHER_BTN_ID)
+    .addEventListener("click", async (event) => {
+      event.preventDefault();
+      const city = document.getElementById(CITY_INPUT_ID).value;
+      const weatherResultElement = document.getElementById(WEATHER_RESULT_ID);
+
       if (city) {
         const result = await fetchWeatherData(city);
         console.log(result);
+        weatherResultElement.innerHTML = result;
       } else {
         console.log("No City's Entered");
+        weatherResultElement.innerHTML = "No City's Entered";
       }
     });
-  return temperatureElementCity;
 }
+
+// export async function cityWeather() {
+//   const temperatureElementCity = document
+//     .getElementById(TEMPERATURE_CITY_ID)
+//     .addEventListener("click", async () => {
+//       const city = document.getElementById("city-input").value;
+//       if (city) {
+//         const result = await fetchWeatherData(city);
+//         console.log(result);
+//       } else {
+//         console.log("No City's Entered");
+//       }
+//     });
+//   return temperatureElementCity;
+// }
 //  the new key ``const apiKey = "9fb7eaa1d74f42cd16922223a39b68f9";``
