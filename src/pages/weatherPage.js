@@ -25,7 +25,7 @@ export const initializeWeatherPage = () => {
        <button id="fetch-weather-btn">Fetch Weather</button>
        <div id="${WEATHER_RESULT_ID}"></div>
        </section>
-  
+
       </div>
     `;
 

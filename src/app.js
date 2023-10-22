@@ -5,9 +5,10 @@ import { initializeSidebar } from "./pages/sidebarPage.js";
 import { USER_INTERFACE_ID, WEATHER_PAGE_ICON_LINK_ID } from "./constants.js";
 import { renderMain } from "./views/mainView.js";
 import { renderFooter } from "./views/footerView.js";
-// import { fetchUserSets } from "./api/rijksmuseumAPI.js"; // Adjust the path as needed
+// import { fetchUserSets } from "./api/rijksmuseumAPI.js";
 // import { fetchArtworkImage } from "./api/art.js";
 import { initializeWeatherPage } from "./pages/weatherPage.js";
+import { initializeMuseumPage } from "./pages/portraitPage.js";
 const initializeApp = () => {
   const ui = document.getElementById(USER_INTERFACE_ID);
 
@@ -17,16 +18,14 @@ const initializeApp = () => {
   const navItems = ["Home", "About", "Contact"];
   populateNavItems(navItems);
   attachMenuToggleListener();
-  // Inject the sidebar
+
   initializeSidebar();
 
   ui.insertAdjacentHTML("beforeend", renderMain());
   ui.insertAdjacentHTML("beforeend", renderFooter());
 
   initializeWeatherPage();
-
-  // fetchArtworkImage();
-  // fetchUserSets();
+  initializeMuseumPage();
 };
 
 // window.onload = initializeApp;

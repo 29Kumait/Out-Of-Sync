@@ -22,3 +22,12 @@ export const TEMPERATURE_CITY_ID = "temperature-city";
 export const FETCH_WEATHER_BTN_ID = "fetch-weather-btn";
 export const CITY_INPUT_ID = "city-input";
 export const WEATHER_RESULT_ID = "weather-result";
+
+export const LATITUDE_INPUT_ID = "latitude-input";
+export const LONGITUDE_INPUT_ID = "longitude-input";
+export const LON_LAT_BUTTON_ID = "lon-lat-button";
+export const LON_LAT_RESULT_ID = "lon-lat-result";
+export const LON_LAT_FEATURE_SELECT_ID = "lonLat-feature-select";
+
+export const MUSEUM_PAGE_ICON_LINK_ID = "museum-page-link";
+export const ARTWORK_SECTION_ID = "artworkSection";

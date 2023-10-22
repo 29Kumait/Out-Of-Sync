@@ -1,6 +1,6 @@
 // navPage.js
 import { NAV_LIST_ID, MENU_TOGGLE_ID, MAIN_ID } from "../constants.js";
-// import { initializeSidebarItems } from "./itemsSidebarPage.js";
+
 export const populateNavItems = (navItems) => {
   const ulElement = document.getElementById(NAV_LIST_ID);
   if (ulElement) {

@@ -66,14 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("fetchNews").addEventListener("click", async () => {
     const newsList = document.getElementById("newsList");
 
-    // Fetching news from an API (replace with actual API call)
+    //  (replace with actual API call)
     const fakeNewsData = [
       { title: "Title 1", description: "Description 1" },
       { title: "Title 2", description: "Description 2" },
       // ... more articles
     ];
 
-    // Clear previous news
+    // Clearing previous news
     newsList.innerHTML = "";
 
     // Populate news

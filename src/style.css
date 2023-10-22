@@ -4,10 +4,13 @@ body {
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    background-color: rgba(255, 255, 255, .8);
     background-image: url('../public/fetch.png');
     transition: background-image 0.5s ease-in-out;
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
+
+
 }
 
 .container {
@@ -34,6 +37,7 @@ body {
     align-items: center;
     padding: 20px;
     background-color: rgb(116, 200, 200);
+
 }
 
 

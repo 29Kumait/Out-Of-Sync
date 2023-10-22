@@ -21,12 +21,8 @@ function processData(data) {
     const temperature = data.current_weather.temperature;
     temperatureElement.innerHTML = `Temperature: <span id="tempValue">${temperature}</span> °C`;
     const tempValueElement = document.getElementById("tempValue");
-    if (temperature > 29) {
-      tempValueElement.classList.add("hotTemperature");
-    }
-    if (temperature < 13) {
-      tempValueElement.classList.add("coldTemperature");
-    }
+    tempValueElement.style.color =
+      temperature > 29 ? "red" : temperature < 13 ? "blue" : "inherit";
   }
 }
 
@@ -71,19 +67,4 @@ export async function cityWeather() {
       }
     });
 }
-
-// export async function cityWeather() {
-//   const temperatureElementCity = document
-//     .getElementById(TEMPERATURE_CITY_ID)
-//     .addEventListener("click", async () => {
-//       const city = document.getElementById("city-input").value;
-//       if (city) {
-//         const result = await fetchWeatherData(city);
-//         console.log(result);
-//       } else {
-//         console.log("No City's Entered");
-//       }
-//     });
-//   return temperatureElementCity;
-// }
 //  the new key ``const apiKey = "9fb7eaa1d74f42cd16922223a39b68f9";``
