@@ -9,7 +9,6 @@ export async function fetchFileFromServer() {
     }
 
     const data = await response.json();
-    // Do something with the data
   } catch (error) {
     console.error("An error occurred:", error);
   }

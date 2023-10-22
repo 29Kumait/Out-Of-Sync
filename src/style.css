@@ -5,6 +5,7 @@ body {
     box-sizing: border-box;
     scroll-behavior: smooth;
     background-image: url('../public/fetch.png');
+    transition: background-image 0.5s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -108,7 +109,6 @@ nav button {
 .sidebar-item img {
     width: 49px;
     height: 49px;
-    /* Add more styles as needed */
 }
 
 .sidebar.open {
@@ -139,7 +139,6 @@ nav button {
     display: none;
 }
 
-/* Open button when the sidebar is open */
 #openBtn.open {
     right: 300px;
 }

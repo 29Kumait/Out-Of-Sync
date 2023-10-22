@@ -1,39 +1,34 @@
-// sidebarPage.js
-import { sidebarSetUp } from "../views/sidebarView.js";
-import {
-  USER_INTERFACE_ID,
-  SIDEBAR_ID,
-  OPEN_BTN_ID,
-  // FETCH_ARTWORK_LINK_ID,
-} from "../constants.js";
-import { populateSidebar } from "../views/sidebarView.js";
-
-const toggleClasses = (elements, classNames) =>
-  elements.forEach((el, i) => el?.classList.toggle(classNames[i]));
+import { sidebarSetUp, styleSidebar } from "../views/sidebarView.js";
+import { USER_INTERFACE_ID, SIDEBAR_ID, OPEN_BTN_ID } from "../constants.js";
+import { initializeSidebarItems } from "./itemsSidebarPage.js";
 
 export const initializeSidebar = () => {
-  document
-    .getElementById(USER_INTERFACE_ID)
-    ?.insertAdjacentHTML("beforeend", sidebarSetUp());
-  populateSidebar();
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  userInterface.insertAdjacentHTML("beforeend", sidebarSetUp());
+
+  styleSidebar();
+  initializeSidebarItems();
+
   const [sidebar, openBtn] = [SIDEBAR_ID, OPEN_BTN_ID].map((id) =>
     document.getElementById(id)
   );
-  // transition effect
+
   sidebar.style.transition = "all 1s ease";
   const [openIcon, closeIcon] = openBtn?.querySelectorAll("img") || [];
+
   document.body.classList.add("fade-transition");
+
   let isOpen = false;
-  document.body.classList.add("fade-transition");
   openBtn?.addEventListener("click", () => {
-    toggleClasses([sidebar, openBtn], ["open", "open"]);
-    toggleClasses([openIcon, closeIcon], ["hidden", "hidden"]);
+    [sidebar, openBtn].forEach((el) => el?.classList.toggle("open"));
+    [openIcon, closeIcon].forEach((el) => el?.classList.toggle("hidden"));
+
     isOpen = !isOpen;
     setTimeout(() => {
       document.body.style.backgroundImage = isOpen
         ? "url('../public/Fetc.png')"
         : "url('../public/Fet.png')";
-    }, 300); // 300ms delay
+    }, 300);
   });
 
   const setSidebarButtonPosition = () => {
@@ -44,9 +39,59 @@ export const initializeSidebar = () => {
   };
 
   setSidebarButtonPosition();
+
   window.addEventListener("load", setSidebarButtonPosition);
   window.addEventListener("resize", setSidebarButtonPosition);
 };
+
+// const setSidebarButtonPosition = () => {
+//   const nav = document.querySelector(".nav");
+//   const openBtn = document.getElementById(OPEN_BTN_ID);  // Define openBtn here
+//   if (nav && openBtn) {
+//     openBtn.style.top = `${nav.offsetHeight}px`;
+//   }
+// };
+
+// const toggleClasses = (elements, classNames) =>
+//   elements.forEach((el, i) => el?.classList.toggle(classNames[i]));
+
+// export const initializeSidebar = () => {
+//   document
+//     .getElementById(USER_INTERFACE_ID)
+//     ?.insertAdjacentHTML("beforeend", sidebarSetUp());
+//   styleSidebar();
+//   initializeSidebarItems();
+
+//   const [sidebar, openBtn] = [SIDEBAR_ID, OPEN_BTN_ID].map((id) =>
+//     document.getElementById(id)
+//   );
+//   // transition effect
+//   sidebar.style.transition = "all 1s ease";
+//   const [openIcon, closeIcon] = openBtn?.querySelectorAll("img") || [];
+//   let isOpen = false;
+//   document.body.classList.add("fade-transition");
+//   openBtn?.addEventListener("click", () => {
+//     toggleClasses([sidebar, openBtn], ["open", "open"]);
+//     toggleClasses([openIcon, closeIcon], ["hidden", "hidden"]);
+//     isOpen = !isOpen;
+//     setTimeout(() => {
+//       document.body.style.backgroundImage = isOpen
+//         ? "url('../public/Fetc.png')"
+//         : "url('../public/Fet.png')";
+//     }, 300); // 300ms delay
+//   });
+
+//   const setSidebarButtonPosition = () => {
+//     const nav = document.querySelector(".nav");
+//     if (nav && openBtn) {
+//       openBtn.style.top = `${nav.offsetHeight}px`;
+//     }
+//   };
+
+//   setSidebarButtonPosition();
+//   window.addEventListener("load", setSidebarButtonPosition);
+//   window.addEventListener("resize", setSidebarButtonPosition);
+// };
 
 // // Placeholder for the displayFetchedArtworkPage function
 
