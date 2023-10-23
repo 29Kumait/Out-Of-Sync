@@ -19,6 +19,26 @@ body {
     min-height: 100vh;
 }
 
+#circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid blue;
+    position: absolute;
+    animation: drawCircle 1s ease-out;
+}
+
+@keyframes drawCircle {
+    from {
+        stroke-dasharray: 0 100;
+    }
+
+    to {
+        stroke-dasharray: 100 0;
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

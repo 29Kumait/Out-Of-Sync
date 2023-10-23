@@ -33,7 +33,9 @@ export const MUSEUM_PAGE_ICON_LINK_ID = "museum-page-link";
 export const ARTWORK_SECTION_ID = "artworkSection";
 // export const ART_SEARCH_RESULT_ID = "search-result";
 export const FILES_PAGE_ICON_LINK_ID = "files-page-lin";
+export const LIST_PAGE_ICON_LINK_ID = "todo-list";
 
+export const TODO_ID = "todo-list";
 export const TODO_FORM_ID = "todo-form";
 export const TODO_INPUT_ID = "todo-input";
 export const TODO_DISPLAY_ID = "todo-display";

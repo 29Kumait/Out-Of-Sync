@@ -27,11 +27,11 @@ export async function fetchArtworkImage(objectNumber) {
       imgElement.style.position = "absolute";
       imgElement.style.left = `${tile.x * 256}px`;
       imgElement.style.top = `${tile.y * 256}px`;
-      imgElement.width = 256; // Optional, based on your requirements
-      imgElement.height = 256; // Optional, based on your requirements
-      // Calculate the maximum x and y positions to set container dimensions
-      maxX = Math.max(maxX, tile.x * 256 + 256); // 256 is the tile width
-      maxY = Math.max(maxY, tile.y * 256 + 256); // 256 is the tile height
+      imgElement.width = 256;
+      imgElement.height = 256;
+
+      maxX = Math.max(maxX, tile.x * 256 + 256);
+      maxY = Math.max(maxY, tile.y * 256 + 256);
       container.appendChild(imgElement);
     });
     container.style.width = `${maxX}px`;
@@ -60,8 +60,6 @@ export function displaySearchResults(artObjects) {
   const resultsDiv = document.getElementById("results");
 
   resultsDiv.innerHTML = "";
-  // Limit the number of artworks to display
-
   artObjects.forEach((art) => {
     const artDiv = document.createElement("div");
     artDiv.innerHTML = `

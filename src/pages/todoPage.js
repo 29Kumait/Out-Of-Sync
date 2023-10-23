@@ -5,7 +5,7 @@ import {
   TODO_INPUT_ID,
   TODO_DISPLAY_ID,
 } from "../constants.js";
-import { initializeTodo } from "../api/fakeTodoAPI.js";
+import { initializeTodo, initializeNote } from "../api/todoAPI.js";
 export const styleMainContentBlocks = (block1, block2, block3) => {
   block1.style.cssText = `
       flex-basis: 100%;
@@ -36,20 +36,22 @@ export const initializeFilesPage = () => {
 
     const filePage = `
         <div a-container">
+
+
           <h1>e</h1>
           <section id="block1"> 
           <form id="${TODO_FORM_ID}">
           <input type="text" id="${TODO_INPUT_ID}" placeholder="Enter your todo">
           <button type="submit">Add</button>
-        </form>
+          </form>
           </section>
 
           <h1></h1>
           <section id="block2"> 
-          <section id="${TODO_DISPLAY_ID}"></section>   
+          <div id="${TODO_DISPLAY_ID}"></div>
           </section>
 
-          <section id="block3">Content for Block 3</section>
+          <section id="block3">𝌽</section>
         </div>
       `;
 
@@ -61,5 +63,7 @@ export const initializeFilesPage = () => {
     const block3 = document.getElementById("block3");
 
     styleMainContentBlocks(block1, block2, block3);
+    initializeTodo();
+    initializeNote();
   });
 };

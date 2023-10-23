@@ -1,6 +1,7 @@
 import {
   WEATHER_PAGE_ICON_LINK_ID,
   MUSEUM_PAGE_ICON_LINK_ID,
+  LIST_PAGE_ICON_LINK_ID,
   FILES_PAGE_ICON_LINK_ID,
 } from "../constants.js";
 export const items = [
@@ -12,11 +13,15 @@ export const items = [
 
   {
     icon: "../public/fetch.ico",
+    alt: "list",
+    id: `${LIST_PAGE_ICON_LINK_ID}`,
+  },
+
+  {
+    icon: "../public/side.ico",
     alt: "files",
     id: `${FILES_PAGE_ICON_LINK_ID}`,
   },
-
-  { icon: "../public/Post.ico", alt: "Post", id: "item3" },
   {
     icon: "../public/art.ico",
     alt: "Museum",

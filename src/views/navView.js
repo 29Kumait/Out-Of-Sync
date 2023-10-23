@@ -14,16 +14,6 @@ export const initializeNav = () => {
   `;
 };
 
-// export const initializeNav = () => {
-//   return `
-//       <nav id="${NAV_ID}" class="nav">
-//           <button id="${MENU_TOGGLE_ID}" class="menu-toggle">Menu</button>
-//           <ul id="${NAV_LIST_ID}" class="nav-list hidden">
-//               <!-- Nav items are populated here -->
-//           </ul>
-//       </nav>
-//   `;
-// };
 // // navView.js
 // import {
 //   NAV_ID,

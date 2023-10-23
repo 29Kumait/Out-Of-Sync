@@ -15,6 +15,7 @@ export const initializeWeatherPage = () => {
 
     const weatherPage = `
       <div id="weather-container">
+      
         <h1>Current Temperature</h1>
        <section id="${TEMPERATURE_DISPLAY_ID}">
        </section>
@@ -24,7 +25,6 @@ export const initializeWeatherPage = () => {
        <button id="fetch-weather-btn">Fetch Weather</button>
        <div id="${WEATHER_RESULT_ID}"></div>
        </section>
-
 
       </div>
     `;

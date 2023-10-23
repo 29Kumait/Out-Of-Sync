@@ -2,14 +2,14 @@
 import { initializeNav } from "./views/navView.js";
 import { attachMenuToggleListener, populateNavItems } from "./pages/navPage.js";
 import { initializeSidebar } from "./pages/sidebarPage.js";
-import { USER_INTERFACE_ID, WEATHER_PAGE_ICON_LINK_ID } from "./constants.js";
+import { USER_INTERFACE_ID } from "./constants.js";
 import { renderMain } from "./views/mainView.js";
 import { renderFooter } from "./views/footerView.js";
 // import { fetchUserSets } from "./api/rijksmuseumAPI.js";
 import { initializeWeatherPage } from "./pages/weatherPage.js";
 import { initializeMuseumPage } from "./pages/portraitPage.js";
-import { initializeFilesPage } from "./pages/filesPage.js";
-import { initializeTodo } from "./api/fakeTodoAPI.js";
+import { initializeFilesPage } from "./pages/todoPage.js";
+
 const initializeApp = () => {
   try {
     const ui = document.getElementById(USER_INTERFACE_ID);
@@ -22,7 +22,6 @@ const initializeApp = () => {
     initializeSidebar();
 
     ui.insertAdjacentHTML("beforeend", renderFooter());
-    initializeTodo();
     initializeWeatherPage();
     initializeFilesPage();
     initializeMuseumPage();
