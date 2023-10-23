@@ -10,22 +10,25 @@ import { initializeWeatherPage } from "./pages/weatherPage.js";
 import { initializeMuseumPage } from "./pages/portraitPage.js";
 import { initializeFilesPage } from "./pages/filesPage.js";
 import { initializeTodo } from "./api/fakeTodoAPI.js";
-
 const initializeApp = () => {
-  const ui = document.getElementById(USER_INTERFACE_ID);
-  ui.insertAdjacentHTML("beforeend", initializeNav());
+  try {
+    const ui = document.getElementById(USER_INTERFACE_ID);
+    ui.insertAdjacentHTML("beforeend", initializeNav());
 
-  const navItems = ["Home", "About", "Contact"];
-  ui.insertAdjacentHTML("beforeend", renderMain());
-  populateNavItems(navItems);
-  attachMenuToggleListener();
-  initializeSidebar();
+    const navItems = ["Home", "About", "Contact"];
+    ui.insertAdjacentHTML("beforeend", renderMain());
+    populateNavItems(navItems);
+    attachMenuToggleListener();
+    initializeSidebar();
 
-  ui.insertAdjacentHTML("beforeend", renderFooter());
-  initializeTodo();
-  initializeWeatherPage();
-  initializeFilesPage();
-  initializeMuseumPage();
+    ui.insertAdjacentHTML("beforeend", renderFooter());
+    initializeTodo();
+    initializeWeatherPage();
+    initializeFilesPage();
+    initializeMuseumPage();
+  } catch (error) {
+    console.error("There has been a problem with your initialization:", error);
+  }
 };
 
 // window.onload = initializeApp;
