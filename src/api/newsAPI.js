@@ -31,7 +31,7 @@ document.getElementById("fetchNews").addEventListener("click", async () => {
   }
 });
 
-const apiKey = "2a99a0a58a7a424f950e1a62bbed2546";
+// const apiKey = "2a99a0a58a7a424f950e1a62bbed2546";
 
 // document.getElementById("fetchNews").addEventListener("click", async () => {
 //   try {

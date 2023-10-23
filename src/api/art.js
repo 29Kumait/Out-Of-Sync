@@ -17,10 +17,9 @@ export async function fetchArtworkImage(objectNumber) {
     container.style.position = "relative";
     container.style.width = `${level.width}px`;
     container.style.height = `${level.height}px`;
-    container.style.margin = "20px";
+    container.style.margin = "10px";
     let maxX = 0;
     let maxY = 0;
-    tiles.sort((a, b) => a.y - b.y || a.x - b.x); // Sort by y, then by x
 
     tiles.forEach((tile) => {
       const imgElement = document.createElement("img");
@@ -46,6 +45,7 @@ export async function fetchArtworkImage(objectNumber) {
 }
 
 export async function fetchArtSearch() {
+  console.log("fetchArtSearch is being called");
   const query = document.getElementById("searchInput").value;
   const apiKey = "eXVjKRhm";
   const url = `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&q=${query}`;
@@ -58,16 +58,19 @@ export async function fetchArtSearch() {
 
 export function displaySearchResults(artObjects) {
   const resultsDiv = document.getElementById("results");
+
   resultsDiv.innerHTML = "";
   // Limit the number of artworks to display
-  const limitedArtObjects = artObjects.slice(0, 3);
+
   artObjects.forEach((art) => {
     const artDiv = document.createElement("div");
     artDiv.innerHTML = `
       <h3>${art.title}</h3>
       <p>${art.principalOrFirstMaker}</p>
-      <img src="${art.webImage.url}" alt="${art.title}">
+      <img src="${art.webImage.url}" alt="${art.title}" loading="lazy">
     `;
+    artDiv.className = "art-card";
+
     resultsDiv.appendChild(artDiv);
   });
 }

@@ -18,14 +18,17 @@ export const initializeMuseumPage = () => {
         <section id="${ARTWORK_SECTION_ID}">
         </section>
         
-        <input type="text" id="searchInput" placeholder="artObject">
-        <button>Search</button>
+
         <div id="results"></div>
+
+        <input type="text" id="searchInput" placeholder="artObject">
+
+        <button>Search</button>
       </div>
     `;
 
-    const searchButton = document.querySelector("button");
-    searchButton.addEventListener("click", fetchArtSearch);
+    // const searchButton = document.querySelector("button");
+    // searchButton.addEventListener("click", fetchArtSearch);
 
     contentMain.style.cssText = `
     background-size: cover;
@@ -35,7 +38,10 @@ export const initializeMuseumPage = () => {
      `;
 
     contentMain.insertAdjacentHTML("beforeend", museumPage);
-
+    const searchButton = document.querySelector("button");
+    if (searchButton) {
+      searchButton.addEventListener("click", fetchArtSearch);
+    }
     const objectNumber = "SK-A-1196";
     fetchArtworkImage(objectNumber);
   });

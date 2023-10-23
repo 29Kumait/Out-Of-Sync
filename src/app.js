@@ -6,25 +6,25 @@ import { USER_INTERFACE_ID, WEATHER_PAGE_ICON_LINK_ID } from "./constants.js";
 import { renderMain } from "./views/mainView.js";
 import { renderFooter } from "./views/footerView.js";
 // import { fetchUserSets } from "./api/rijksmuseumAPI.js";
-// import { fetchArtworkImage } from "./api/art.js";
 import { initializeWeatherPage } from "./pages/weatherPage.js";
 import { initializeMuseumPage } from "./pages/portraitPage.js";
+import { initializeFilesPage } from "./pages/filesPage.js";
+import { initializeTodo } from "./api/fakeTodoAPI.js";
+
 const initializeApp = () => {
   const ui = document.getElementById(USER_INTERFACE_ID);
-
-  // Initialize and inject the nav
   ui.insertAdjacentHTML("beforeend", initializeNav());
 
   const navItems = ["Home", "About", "Contact"];
+  ui.insertAdjacentHTML("beforeend", renderMain());
   populateNavItems(navItems);
   attachMenuToggleListener();
-
   initializeSidebar();
 
-  ui.insertAdjacentHTML("beforeend", renderMain());
   ui.insertAdjacentHTML("beforeend", renderFooter());
-
+  initializeTodo();
   initializeWeatherPage();
+  initializeFilesPage();
   initializeMuseumPage();
 };
 

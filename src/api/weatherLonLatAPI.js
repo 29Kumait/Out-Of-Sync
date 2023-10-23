@@ -5,13 +5,11 @@
 //   LONGITUDE_INPUT_ID,
 // } from "../constants.js";
 
-// export const initWeatherModule = () => {
+// export const initWeatherAPI = () => {
 //   document.addEventListener("DOMContentLoaded", () => {
 //     const fetchWeather = async (latitude, longitude) => {
 //       try {
-//         const response = await fetch(
-//           `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`
-//         );
+//         const response = await fetch();
 //         if (!response.ok) {
 //           console.error(`HTTP error! status: ${response.status}`);
 //           return;
@@ -52,4 +50,35 @@
 //       });
 //     }
 //   });
-// };
+// // };
+// export async function weatherLatLon(lat, lon) {
+//   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`;
+
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw new Error("Failed to fetch weather ");
+//     }
+
+//     const data = await response.json();
+//     console.log("Weather Data:", data);
+
+//     const weatherDisplay = document.getElementById("weatherDisplay");
+//     weatherDisplay.innerHTML = `
+//       <h3>Weather </h3>
+//       <p>Latitude: ${lat}, Longitude: ${lon}</p>
+//       <p>Temperature: ${data.hourly.temperature_2m[0]}°C</p>
+//     `;
+//   } catch (error) {
+//     console.error("An error occurred:", error);
+//   }
+// }
+
+// document
+//   .getElementById("fetchWeatherButton")
+//   .addEventListener("click", function () {
+//     const lat = document.getElementById("latitude").value;
+//     const lon = document.getElementById("longitude").value;
+
+//     fetchWeatherByLatLon(lat, lon);
+//   });

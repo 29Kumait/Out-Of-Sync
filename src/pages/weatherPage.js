@@ -6,7 +6,6 @@ import {
   WEATHER_RESULT_ID,
 } from "../constants.js";
 import { displayWeather, cityWeather } from "../api/weatherAPI.js";
-
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
 
@@ -25,6 +24,7 @@ export const initializeWeatherPage = () => {
        <button id="fetch-weather-btn">Fetch Weather</button>
        <div id="${WEATHER_RESULT_ID}"></div>
        </section>
+
 
       </div>
     `;
