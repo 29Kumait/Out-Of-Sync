@@ -43,8 +43,8 @@ Navigate through the sidebar to access different pages. Each page allows you to 
 
 ## Contributing
 
-### Teachings from [HackYourFuture](https://github.com/nodesource/distributions#debinstall) 
-#### open AI
+### Teachings from [HackYourFuture](https://github.com/HackYourFuture)
+##### open AI
 
 #### License
 
