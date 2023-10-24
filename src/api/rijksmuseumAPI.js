@@ -21,13 +21,12 @@ export async function fetchUserSets(page = 1) {
       });
       ticker.textContent = tickerText;
 
-      let position = ticker.offsetWidth; // Start position at the end of the ticker
+      let position = ticker.offsetWidth;
 
       const moveTicker = () => {
-        position -= 1; // Move left by 1 pixel
+        position -= 1;
         ticker.style.transform = `translateX(${position}px)`;
 
-        // Reset position when the text goes completely off screen
         if (-position >= ticker.offsetWidth) {
           position = ticker.offsetWidth;
         }

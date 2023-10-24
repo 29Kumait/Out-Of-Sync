@@ -19,6 +19,7 @@ const initializeApp = () => {
     ui.insertAdjacentHTML("beforeend", renderMain());
     populateNavItems(navItems);
     attachMenuToggleListener();
+
     initializeSidebar();
 
     ui.insertAdjacentHTML("beforeend", renderFooter());

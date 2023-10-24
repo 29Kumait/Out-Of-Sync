@@ -55,7 +55,6 @@ export async function fetchArtSearch() {
 
   displaySearchResults(data.artObjects);
 }
-
 export const displaySearchResults = (artObjects) => {
   const artPieceDiv = document.createElement("div");
   artPieceDiv.id = "art-piece-display";
@@ -73,7 +72,17 @@ export const displaySearchResults = (artObjects) => {
   `;
 
   const artPieceImg = document.createElement("img");
-  artPieceImg.src = artObjects;
+  // Assuming the first object in the artObjects array has a webImage.url property
+  if (
+    artObjects.length > 0 &&
+    artObjects[0].webImage &&
+    artObjects[0].webImage.url
+  ) {
+    artPieceImg.src = artObjects[0].webImage.url;
+  } else {
+    //  error Handler
+  }
+
   artPieceImg.style = "max-width: 90%; max-height: 90%;";
   artPieceImg.loading = "lazy";
   artPieceDiv.appendChild(artPieceImg);

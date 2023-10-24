@@ -4,5 +4,6 @@
         "initialise",
         "rijksmuseum",
         "todos"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
