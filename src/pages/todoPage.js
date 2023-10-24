@@ -38,7 +38,7 @@ export const initializeFilesPage = () => {
         <div a-container">
 
 
-          <h1>e</h1>
+          <h1>✏︎✏︎✁</h1>
           <section id="block1"> 
           <form id="${TODO_FORM_ID}">
           <input type="text" id="${TODO_INPUT_ID}" placeholder="Enter your todo">

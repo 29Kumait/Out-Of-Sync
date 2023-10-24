@@ -56,19 +56,31 @@ export async function fetchArtSearch() {
   displaySearchResults(data.artObjects);
 }
 
-export function displaySearchResults(artObjects) {
-  const resultsDiv = document.getElementById("results");
+export const displaySearchResults = (artObjects) => {
+  const artPieceDiv = document.createElement("div");
+  artPieceDiv.id = "art-piece-display";
+  artPieceDiv.style = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  `;
 
-  resultsDiv.innerHTML = "";
-  artObjects.forEach((art) => {
-    const artDiv = document.createElement("div");
-    artDiv.innerHTML = `
-      <h3>${art.title}</h3>
-      <p>${art.principalOrFirstMaker}</p>
-      <img src="${art.webImage.url}" alt="${art.title}" loading="lazy">
-    `;
-    artDiv.className = "art-card";
+  const artPieceImg = document.createElement("img");
+  artPieceImg.src = artObjects;
+  artPieceImg.style = "max-width: 90%; max-height: 90%;";
+  artPieceImg.loading = "lazy";
+  artPieceDiv.appendChild(artPieceImg);
 
-    resultsDiv.appendChild(artDiv);
+  document.body.appendChild(artPieceDiv);
+
+  artPieceDiv.addEventListener("click", () => {
+    document.body.removeChild(artPieceDiv);
   });
-}
+};

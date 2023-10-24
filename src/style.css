@@ -29,6 +29,13 @@ body {
     animation: drawCircle 1s ease-out;
 }
 
+#ticker {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+
 @keyframes drawCircle {
     from {
         stroke-dasharray: 0 100;
