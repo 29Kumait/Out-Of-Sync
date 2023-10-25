@@ -1,104 +1,41 @@
-const apiKey = "8ce81f0fcdec753deb7e2c32325e7f55";
+import { NEWS_TICKER_ID } from "../constants.js";
 
-document.getElementById("fetchNews").addEventListener("click", async () => {
-  try {
-    const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
-    );
-    const data = await response.json();
-    const newsList = document.getElementById("newsList");
-    newsList.innerHTML = ""; // Clear existing news
+const API_KEY = "2a99a0a58a7a424f950e1a62bbed2546";
+const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news,the-verge&apiKey=${API_KEY}`;
 
-    data.articles.forEach((article) => {
-      const newsItem = document.createElement("div");
-      const closeButton = document.createElement("span");
+let headlines = [];
+let tickerPosition = 0;
 
-      closeButton.textContent = "✕";
-      closeButton.className = "close-button";
-      closeButton.addEventListener("click", () => {
-        newsItem.remove();
-      });
+const fetchHeadlines = async () => {
+  const response = await fetch(url);
+  const data = await response.json();
 
-      newsItem.innerHTML = `
-        <h2>${article.title}</h2>
-        <p>${article.description}</p>
-      `;
-      newsItem.appendChild(closeButton);
-      newsList.appendChild(newsItem);
-    });
-  } catch (error) {
-    console.error("An error occurred:", error);
-  }
-});
+  headlines = data.articles.map((article) => article.title);
+};
 
-// const apiKey = "2a99a0a58a7a424f950e1a62bbed2546";
+const initTicker = () => {
+  const tickerElement = document.createElement("div");
+  tickerElement.id = NEWS_TICKER_ID;
+  document.body.appendChild(tickerElement);
+};
 
-// document.getElementById("fetchNews").addEventListener("click", async () => {
-//   try {
-//     const response = await fetch(
-//       `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`
-//     );
-//     const data = await response.json();
-//     const newsList = document.getElementById("newsList");
-//     newsList.innerHTML = ""; // Clear existing news
+const updateTicker = () => {
+  if (headlines.length === 0) return;
 
-//     data.articles.forEach((article) => {
-//       const newsItem = document.createElement("div");
-//       newsItem.innerHTML = `
-//             <h2>${article.title}</h2>
-//             <p>${article.description}</p>
-//           `;
-//       newsList.appendChild(newsItem);
-//     });
-//   } catch (error) {
-//     console.error("An error occurred:", error);
-//   }
-// });
-document.addEventListener("DOMContentLoaded", () => {
-  const closeButtons = document.querySelectorAll(".close-btn");
-  closeButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.target.closest(".news-article").remove();
-    });
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("fetchNews").addEventListener("click", async () => {
-    const newsList = document.getElementById("newsList");
+  let displayedHeadline = headlines[tickerPosition % headlines.length];
+  document.getElementById(NEWS_TICKER_ID).innerText = `• ${displayedHeadline}`;
 
-    //  (replace with actual API call)
-    const fakeNewsData = [
-      { title: "Title 1", description: "Description 1" },
-      { title: "Title 2", description: "Description 2" },
-      // ... more articles
-    ];
+  tickerPosition++;
+};
 
-    // Clearing previous news
-    newsList.innerHTML = "";
+// export async function news() {
+//   initTicker();
+//   await fetchHeadlines();
+//   setInterval(updateTicker, 5000);
+// }
 
-    // Populate news
-    fakeNewsData.forEach((article) => {
-      const articleDiv = document.createElement("div");
-      articleDiv.classList.add("news-article");
-
-      const closeButton = document.createElement("button");
-      closeButton.classList.add("close-btn");
-      closeButton.textContent = "X";
-      closeButton.addEventListener("click", () => {
-        articleDiv.remove();
-      });
-
-      const title = document.createElement("h2");
-      title.textContent = article.title;
-
-      const description = document.createElement("p");
-      description.textContent = article.description;
-
-      articleDiv.appendChild(closeButton);
-      articleDiv.appendChild(title);
-      articleDiv.appendChild(description);
-
-      newsList.appendChild(articleDiv);
-    });
-  });
-});
+export const news = async () => {
+  initTicker();
+  await fetchHeadlines();
+  setInterval(updateTicker, 5000);
+};

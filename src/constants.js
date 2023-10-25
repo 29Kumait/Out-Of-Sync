@@ -40,3 +40,5 @@ export const TODO_INPUT_ID = "todo-input";
 export const TODO_DISPLAY_ID = "todo-display";
 
 export const ARTWORK_SECTION_ID = "artworkSection";
+
+export const NEWS_TICKER_ID = "news-ticker";

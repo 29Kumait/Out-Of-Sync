@@ -4,8 +4,10 @@ import {
   TEMPERATURE_DISPLAY_ID,
   TEMPERATURE_CITY_ID,
   WEATHER_RESULT_ID,
+  NEWS_TICKER_ID,
 } from "../constants.js";
 import { displayWeather, cityWeather } from "../api/weatherAPI.js";
+import { news } from "../api/newsAPI.js";
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
 
@@ -19,6 +21,7 @@ export const initializeWeatherPage = () => {
         <h1>Current Temperature</h1>
        <section id="${TEMPERATURE_DISPLAY_ID}">
        </section>
+       
        <h1>City Temperature</h1>
        <section id="${TEMPERATURE_CITY_ID}">
        <input type="text" id="city-input" placeholder="Your City">
@@ -26,6 +29,9 @@ export const initializeWeatherPage = () => {
        <div id="${WEATHER_RESULT_ID}"></div>
        </section>
 
+       <h3> NEWs Headline </h3>
+       <section id="${NEWS_TICKER_ID}">
+       </section>
       </div>
     `;
 
@@ -37,5 +43,6 @@ export const initializeWeatherPage = () => {
 
     displayWeather();
     cityWeather();
+    news();
   });
 };
