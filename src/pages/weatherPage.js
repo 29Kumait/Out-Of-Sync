@@ -30,8 +30,12 @@ export const initializeWeatherPage = () => {
        </section>
 
        <h3> NEWs Headline </h3>
-       <section id="${NEWS_TICKER_ID}">
+       <section>
+       <div id="${NEWS_TICKER_ID}"></div>
        </section>
+ 
+
+
       </div>
     `;
 
