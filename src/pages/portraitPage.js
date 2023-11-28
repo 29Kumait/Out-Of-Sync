@@ -2,9 +2,15 @@ import {
   MUSEUM_PAGE_ICON_LINK_ID,
   MAIN_ID,
   ARTWORK_SECTION_ID,
+  USER_SETS_ID,
 } from "../constants.js";
 import { fetchArtworkImage, fetchArtSearch } from "../api/art.js";
-import { fetchUserSets } from "../api/rijksmuseumAPI.js";
+import {
+  fetchUserSets,
+  userSets,
+  createTicker,
+} from "../api/rijksmuseumAPI.js";
+
 export const initializeMuseumPage = () => {
   const contentPage = document.getElementById(MUSEUM_PAGE_ICON_LINK_ID);
 
@@ -14,6 +20,8 @@ export const initializeMuseumPage = () => {
 
     const museumPage = `
       <div id="museumContainer">
+
+
         <h1>Museum</h1>
         <section id="${ARTWORK_SECTION_ID}">
         </section>
@@ -22,10 +30,14 @@ export const initializeMuseumPage = () => {
         <div id="results"></div>
 
         <input type="text" id="searchInput" placeholder="return portraits">
+       
+        <button>Search</button>  <button id="showArtSetButton">Data Art-Set</button> 
 
-        <button>Search</button>
-        <button id="showArtSetButton">Data Art-Set</button>  <div id="ticker">
+
+         <section id="${USER_SETS_ID}"> </section>
+
       </div>
+
     `;
 
     // const searchButton = document.querySelector("button");
@@ -49,8 +61,15 @@ export const initializeMuseumPage = () => {
     if (showArtSetButton) {
       showArtSetButton.addEventListener("click", fetchUserSets);
     }
+
+    const museumContainer = document.getElementById("museumContainer");
+    const tickerContainer = createTicker();
+    museumContainer.appendChild(tickerContainer);
+
     const objectNumber = "SK-A-1196";
     fetchArtworkImage(objectNumber);
+
+    userSets(tickerContainer);
   });
 };
 

@@ -8,7 +8,14 @@ export const populateNavItems = (navItems) => {
       const liElement = document.createElement("li");
       liElement.className = "nav-item";
       liElement.innerHTML = `<a class="nav-link" href="#">${item}</a>`;
+
       liElement.addEventListener(
+        // liElement.addEventListener("click", function () {
+        //   if (item === "Home") {
+        //     goHome();
+        //     document.body.style.backgroundImage = "url('../public/fetch.png')";
+        //   }
+        // });
         "click",
         () =>
           item === "Home" &&

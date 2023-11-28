@@ -1,4 +1,5 @@
-import { ARTWORK_SECTION_ID } from "../constants.js";
+import { USER_SETS_ID } from "../constants.js";
+
 export async function fetchUserSets(page = 1) {
   const apiKey = "eXVjKRhm";
   try {
@@ -12,82 +13,50 @@ export async function fetchUserSets(page = 1) {
     }
 
     const data = await response.json();
-
-    if (data.userSets) {
-      const ticker = document.getElementById("ticker");
-      let tickerText = "";
-      data.userSets.forEach((set) => {
-        tickerText += `${set.title} by ${set.creator} | `;
-      });
-      ticker.textContent = tickerText;
-
-      let position = ticker.offsetWidth;
-
-      const moveTicker = () => {
-        position -= 1;
-        ticker.style.transform = `translateX(${position}px)`;
-
-        if (-position >= ticker.offsetWidth) {
-          position = ticker.offsetWidth;
-        }
-      };
-      setInterval(moveTicker, 20);
-    }
+    return data.userSets
+      .map((userSet) =>
+        userSet.name && userSet.user && userSet.user.name
+          ? `• ${userSet.name} by ${userSet.user.name} | `
+          : ""
+      )
+      .filter(Boolean);
   } catch (error) {
-    console.error("An error occurred:", error);
+    console.error(" Error: ", error);
   }
 }
 
-// function showArtPiece(imageUrl) {
-//   const artDiv = document.createElement("div");
-//   artDiv.className = "art-piece";
+export function createTicker() {
+  const tickerContainer = document.createElement("div");
+  tickerContainer.id = USER_SETS_ID;
+  tickerContainer.style.width = "50%";
+  tickerContainer.style.overflow = "hidden";
+  return tickerContainer;
+}
 
-//   const imgElement = document.createElement("img");
-//   imgElement.src = imageUrl;
-//   artDiv.appendChild(imgElement);
+function startScrolling(tickerContainer, userSets) {
+  let position = 0;
+  const ticker = document.createElement("div");
+  ticker.style.whiteSpace = "nowrap";
+  ticker.style.overflow = "hidden";
 
-//   artDiv.addEventListener("click", () => {
-//     document.body.removeChild(artDiv);
-//   });
+  ticker.textContent = userSets.join(" ");
+  tickerContainer.appendChild(ticker);
 
-//   document.body.appendChild(artDiv);
-//
+  function scroll() {
+    position--;
+    ticker.style.transform = `translateX(${position}px)`;
+    if (-position > ticker.offsetWidth) {
+      position = tickerContainer.offsetWidth;
+    }
+    requestAnimationFrame(scroll);
+  }
 
-// export async function fetchUserSets(page = 1) {
-//   const apiKey = "eXVjKRhm";
-//   try {
-//     const url = `https://www.rijksmuseum.nl/api/en/usersets?key=${apiKey}&format=json&page=${page}`;
-//     const response = await fetch(url);
+  scroll();
+}
 
-//     if (!response.ok) {
-//       const errorData = await response.json();
-//       console.error("Fetch Error:", errorData);
-//       return;
-//     }
+export const userSets = async (tickerContainer) => {
+  const userSets = await fetchUserSets();
+  if (!userSets) return;
 
-//     const data = await response.json();
-//     console.log(data);
-
-//     if (data.userSets) {
-//       console.log("Debug userSets:", data.userSets); // Debug line
-//       const imageUrls = data.userSets
-//         .map((set) => (set.image ? set.image.url : null))
-//         .filter((url) => url);
-//       console.log(imageUrls);
-//       if (imageUrls.length > 0) {
-//         const imgElement = document.createElement("img");
-//         imgElement.src = imageUrls[0];
-//         const container = document.getElementById(ARTWORK_SECTION_ID);
-//         container.appendChild(imgElement);
-
-//         document
-//           .getElementById("showArtSetButton")
-//           .addEventListener("click", () => {
-//             showArtPiece(imageUrls[0]);
-//           });
-//       }
-//     }
-//   } catch (error) {
-//     console.error("An error occurred:", error);
-//   }
-// }
+  startScrolling(tickerContainer, userSets);
+};
