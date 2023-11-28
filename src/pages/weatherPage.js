@@ -11,6 +11,7 @@ import { news } from "../api/newsAPI.js";
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
   let isDay = true;
+
   pageContent.addEventListener("click", () => {
     const mainContent = document.getElementById(MAIN_ID);
     mainContent.innerHTML = "";
