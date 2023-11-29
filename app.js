@@ -1,14 +1,17 @@
 // app.js
-import { initializeNav } from "./views/navView.js";
-import { attachMenuToggleListener, populateNavItems } from "./pages/navPage.js";
-import { initializeSidebar } from "./pages/sidebarPage.js";
-import { USER_INTERFACE_ID } from "./constants.js";
-import { renderMain } from "./views/mainView.js";
-import { renderFooter } from "./views/footerView.js";
+import { initializeNav } from "./src/views/navView.js";
+import {
+  attachMenuToggleListener,
+  populateNavItems,
+} from "./src/pages/navPage.js";
+import { initializeSidebar } from "./src/pages/sidebarPage.js";
+import { USER_INTERFACE_ID } from "./src/constants.js";
+import { renderMain } from "./src/views/mainView.js";
+import { renderFooter } from "./src/views/footerView.js";
 // import { fetchUserSets } from "./api/rijksmuseumAPI.js";
-import { initializeWeatherPage } from "./pages/weatherPage.js";
-import { initializeMuseumPage } from "./pages/portraitPage.js";
-import { initializeFilesPage } from "./pages/todoPage.js";
+import { initializeWeatherPage } from "./src/pages/weatherPage.js";
+import { initializeMuseumPage } from "./src/pages/portraitPage.js";
+import { initializeFilesPage } from "./src/pages/todoPage.js";
 
 const initializeApp = () => {
   try {
