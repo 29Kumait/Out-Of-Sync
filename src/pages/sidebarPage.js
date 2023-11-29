@@ -26,7 +26,7 @@ export const initializeSidebar = () => {
     isOpen = !isOpen;
     setTimeout(() => {
       document.body.style.backgroundImage = isOpen
-        ? "url('../public/img1.png')"
+        ? "url('public/img.png')"
         : "url('../public/Fet.png')";
     }, 300);
   });
