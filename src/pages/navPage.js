@@ -20,7 +20,7 @@ export const populateNavItems = (navItems) => {
         () =>
           item === "Home" &&
           (goHome(),
-          (document.body.style.backgroundImage = "url('public/mes.png'')"))
+          (document.body.style.backgroundImage = "url('public/mes.png')"))
       );
       ulElement.appendChild(liElement);
     });
