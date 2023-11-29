@@ -27,8 +27,8 @@ export const initializeSidebar = () => {
     setTimeout(() => {
       document.body.style.backgroundImage = isOpen
         ? "url('public/Fet.png')"
-        : "url('public/fetch.png')";
-    }, 300);
+        : "url('public/mes.png')";
+    }, 500);
   });
 
   const setSidebarButtonPosition = () => {

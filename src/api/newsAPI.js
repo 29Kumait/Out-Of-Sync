@@ -19,20 +19,12 @@ const fetchHeadlines = async () => {
   }
 };
 
-const initTicker = () => {
-  const tickerElement = document.createElement("div");
-
-  tickerElement.id = NEWS_TICKER_ID;
-
-  document.body.appendChild(tickerElement);
-};
-
 const updateTicker = () => {
-  if (headlines.length === 0) return;
+  const tickerElement = document.getElementById(NEWS_TICKER_ID);
+  if (!tickerElement || headlines.length === 0) return;
 
   let displayedHeadline = headlines[tickerPosition % headlines.length];
-  document.getElementById(NEWS_TICKER_ID).innerText = `NEWs Headline:
-  •  ${displayedHeadline}`;
+  tickerElement.innerText = ` 🗽 🗞️ : \n • ${displayedHeadline}.`;
 
   tickerPosition++;
 };
@@ -40,11 +32,14 @@ const updateTicker = () => {
 let intervalId;
 
 export const news = async () => {
-  initTicker();
   await fetchHeadlines();
-  intervalId = setInterval(updateTicker, 5000);
+  const tickerElement = document.getElementById(NEWS_TICKER_ID);
+  if (tickerElement) {
+    tickerElement.style.display = "block"; // Ensure visibility
+    intervalId = setInterval(updateTicker, 5000);
+  }
 };
 
-window.addEventListener("beforeunload", () => {
-  clearInterval(intervalId);
-});
+export const clearNewsInterval = () => {
+  if (intervalId) clearInterval(intervalId);
+};

@@ -205,8 +205,6 @@ nav button {
     }
 }
 
-/* Add this to your style.css */
-
 /* Constrain portrait container size */
 #portrait-container {
     display: flexbox;
@@ -238,19 +236,24 @@ nav button {
 }
 
 #news-ticker {
-    position: sticky;
-    z-index: 1000;
+    display: none;
+    position: fixed;
+    bottom: 150px;
+    margin-left: 100px;
     background-color: rgba(255, 255, 255, .8);
     padding: 10px;
     color: rgb(58, 113, 113);
     margin: 250x;
     max-height: 200px;
     overflow-y: auto;
-    font-size: 29px;
-    line-height: 2;
+    font-size: 21px;
+    line-height: 1.33337;
     font-weight: 800;
     letter-spacing: -.01em;
+    transition: background-image 0.5s ease-in-out;
 }
+
+
 
 /* Temporary  */
 
