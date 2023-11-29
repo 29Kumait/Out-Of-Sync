@@ -42,6 +42,7 @@ export const initializeMuseumPage = () => {
 
   contentPage.addEventListener("click", () => {
     const contentMain = document.getElementById(MAIN_ID);
+    contentMain.innerHTML = "";
     createMuseumPage(contentMain);
 
     const searchButton = document.getElementById("searchButton");

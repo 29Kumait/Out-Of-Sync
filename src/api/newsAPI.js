@@ -7,15 +7,23 @@ let headlines = [];
 let tickerPosition = 0;
 
 const fetchHeadlines = async () => {
-  const response = await fetch(url);
-  const data = await response.json();
-
-  headlines = data.articles.map((article) => article.title);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Failed to fetch news data");
+    }
+    const data = await response.json();
+    headlines = data.articles.map((article) => article.title);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const initTicker = () => {
   const tickerElement = document.createElement("div");
+
   tickerElement.id = NEWS_TICKER_ID;
+
   document.body.appendChild(tickerElement);
 };
 
@@ -23,13 +31,20 @@ const updateTicker = () => {
   if (headlines.length === 0) return;
 
   let displayedHeadline = headlines[tickerPosition % headlines.length];
-  document.getElementById(NEWS_TICKER_ID).innerText = `• ${displayedHeadline}`;
+  document.getElementById(NEWS_TICKER_ID).innerText = `NEWs Headline:
+  •  ${displayedHeadline}`;
 
   tickerPosition++;
 };
 
+let intervalId;
+
 export const news = async () => {
   initTicker();
   await fetchHeadlines();
-  setInterval(updateTicker, 5000);
+  intervalId = setInterval(updateTicker, 5000);
 };
+
+window.addEventListener("beforeunload", () => {
+  clearInterval(intervalId);
+});

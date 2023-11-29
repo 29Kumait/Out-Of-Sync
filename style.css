@@ -112,6 +112,7 @@ nav button {
     height: 100%;
     background-color: rgba(22, 22, 23, .8);
     transition: color .32s cubic-bezier(.4, 0, .6, 1);
+    z-index: 2000;
 }
 
 /* For the icons within the sidebar items */
@@ -236,6 +237,20 @@ nav button {
     }
 }
 
+#news-ticker {
+    position: sticky;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 10px;
+    color: rgb(58, 113, 113);
+    margin: 250x;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 29px;
+    line-height: 2;
+    font-weight: 800;
+    letter-spacing: -.01em;
+}
 
 /* Temporary  */
 
