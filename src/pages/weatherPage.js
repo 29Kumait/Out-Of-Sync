@@ -10,6 +10,7 @@ import { displayWeather, cityWeather } from "../api/weatherAPI.js";
 import { news } from "../api/newsAPI.js";
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
+
   let isDay = true;
 
   pageContent.addEventListener("click", () => {
