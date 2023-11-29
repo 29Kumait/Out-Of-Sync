@@ -28,12 +28,6 @@ const updateTicker = () => {
   tickerPosition++;
 };
 
-// export async function news() {
-//   initTicker();
-//   await fetchHeadlines();
-//   setInterval(updateTicker, 5000);
-// }
-
 export const news = async () => {
   initTicker();
   await fetchHeadlines();

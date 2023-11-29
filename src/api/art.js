@@ -14,6 +14,7 @@ export async function fetchArtworkImage(objectNumber) {
     const tiles = level.tiles;
 
     const container = document.createElement("div");
+    container.id = "portrait-container";
     container.style.position = "relative";
     container.style.width = `${level.width}px`;
     container.style.height = `${level.height}px`;
@@ -72,7 +73,6 @@ export const displaySearchResults = (artObjects) => {
   `;
 
   const artPieceImg = document.createElement("img");
-  // Assuming the first object in the artObjects array has a webImage.url property
   if (
     artObjects.length > 0 &&
     artObjects[0].webImage &&

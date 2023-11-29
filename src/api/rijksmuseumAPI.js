@@ -22,14 +22,14 @@ export async function fetchUserSets(page = 1) {
       .filter(Boolean);
   } catch (error) {
     console.error(" Error: ", error);
+    throw error;
   }
 }
 
 export function createTicker() {
   const tickerContainer = document.createElement("div");
   tickerContainer.id = USER_SETS_ID;
-  tickerContainer.style.width = "50%";
-  tickerContainer.style.overflow = "hidden";
+  tickerContainer.className = "ticker-container";
   return tickerContainer;
 }
 
@@ -38,6 +38,9 @@ function startScrolling(tickerContainer, userSets) {
   const ticker = document.createElement("div");
   ticker.style.whiteSpace = "nowrap";
   ticker.style.overflow = "hidden";
+  ticker.style.display = "block";
+  ticker.style.margin = "20px";
+  ticker.style.width = tickerContainer.offsetWidth + "px";
 
   ticker.textContent = userSets.join(" ");
   tickerContainer.appendChild(ticker);
