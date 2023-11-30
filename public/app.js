@@ -8,10 +8,12 @@ import { initializeSidebar } from "../src/pages/sidebarPage.js";
 import { USER_INTERFACE_ID } from "../src/constants.js";
 import { renderMain } from "../src/views/mainView.js";
 import { renderFooter } from "../src/views/footerView.js";
-// import { fetchUserSets } from "./api/rijksmuseumAPI.js";
+// import { fetchUserSets } from "../src/api/rijksmuseumAPI.js";
 import { initializeWeatherPage } from "../src/pages/weatherPage.js";
 import { initializeMuseumPage } from "../src/pages/portraitPage.js";
 import { initializeFilesPage } from "../src/pages/todoPage.js";
+
+// rest of your code...
 
 const initializeApp = () => {
   try {

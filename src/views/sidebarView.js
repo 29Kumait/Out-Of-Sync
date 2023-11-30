@@ -1,11 +1,10 @@
 // sidebarView.js
 import { OPEN_BTN_ID, SIDEBAR_ID } from "../constants.js";
-
 export const sidebarSetUp = () => `
   <div id="${SIDEBAR_ID}" class="sidebar"></div>
   <button id="${OPEN_BTN_ID}">
-    <img src="public/media/home.ico" alt="Open Sidebar" />
-    <img src="public/media/X.ico" class="close-icon hidden" />
+    <img src="../../public/media/home.ico" alt="Open Sidebar" />
+    <img src="../../public/media/X.ico" class="close-icon hidden" />
   </button>
 `;
 

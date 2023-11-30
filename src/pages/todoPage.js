@@ -5,7 +5,8 @@ import {
   TODO_INPUT_ID,
   TODO_DISPLAY_ID,
 } from "../constants.js";
-import { initializeTodo, initializeNote } from "../api/todoAPI.js";
+// import { initializeTodo, initializeNote } from "../api/todoAPI.js";
+import { initializeTodo, initializeNote } from "../api/todoClient.js";
 export const styleMainContentBlocks = (block1, block2, block3) => {
   block1.style.cssText = `
       flex-basis: 100%;
