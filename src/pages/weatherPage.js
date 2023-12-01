@@ -17,7 +17,7 @@ export const initializeWeatherPage = () => {
   pageContent.addEventListener("click", () => {
     const mainContent = document.getElementById(MAIN_ID);
     mainContent.innerHTML = "";
-    document.body.style.backgroundImage = "url('media/rain.WEBP')";
+    document.body.style.backgroundImage = "url('public/rain.WEBP')";
 
     // intervalId = setInterval(() => {
     //   document.body.style.backgroundImage = isWeatherPage

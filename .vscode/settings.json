@@ -1,8 +1,4 @@
 {
-  "cSpell.words": ["Fetc", "initialise", "rijksmuseum", "toastify", "todos"],
-  "liveServer.settings.port": 5502,
-  "path-intellisense.autoSlashAfterDirectory": true,
-  "path-intellisense.autoTriggerNextSuggestion": true,
-  "path-intellisense.extensionOnImport": true,
-  "path-intellisense.showHiddenFiles": true
+  "cSpell.words": ["Fetc", "initialise", "rijksmuseum", "todos"],
+  "liveServer.settings.port": 5502
 }
