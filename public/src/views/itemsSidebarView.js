@@ -6,24 +6,24 @@ import {
 } from "../constants.js";
 export const items = [
   {
-    icon: "public/media/W.ico",
+    icon: "media/W.ico",
     alt: "Weather",
     id: `${WEATHER_PAGE_ICON_LINK_ID}`,
   },
 
   {
-    icon: "public/media/fetch.ico",
+    icon: "media/fetch.ico",
     alt: "list",
     id: `${LIST_PAGE_ICON_LINK_ID}`,
   },
 
   {
-    icon: "public/media/side.ico",
+    icon: "media/side.ico",
     alt: "files",
     id: `${FILES_PAGE_ICON_LINK_ID}`,
   },
   {
-    icon: "public/media/art.ico",
+    icon: "media/art.ico",
     alt: "Museum",
     id: `${MUSEUM_PAGE_ICON_LINK_ID}`,
   },

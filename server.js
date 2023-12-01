@@ -1,16 +1,21 @@
 import express from "express";
-import connectDB from "./public/DB.js";
-import todoRoutes from "./src/api/todoServer.js";
+import dotenv from "dotenv";
+import router from "./public/routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+dotenv.config({ path: "./.env" });
 
 const app = express();
-const port = 3000;
-
-connectDB();
 
 app.use(express.json());
-app.use(express.static("public"));
-app.use("/api", todoRoutes);
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", router);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+console.log(`Current working directory: ${process.cwd()}`);

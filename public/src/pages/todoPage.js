@@ -6,7 +6,7 @@ import {
   TODO_DISPLAY_ID,
 } from "../constants.js";
 // import { initializeTodo, initializeNote } from "../api/todoAPI.js";
-import { initializeTodo, initializeNote } from "../api/todoClient.js";
+import { fetchTodos } from "../api/todoClient.js";
 export const styleMainContentBlocks = (block1, block2, block3) => {
   block1.style.cssText = `
       flex-basis: 100%;
@@ -37,8 +37,7 @@ export const initializeFilesPage = () => {
 
     const filePage = `
         <div a-container">
-
-
+        
           <h1>✏︎✏︎✁</h1>
           <section id="block1"> 
           <form id="${TODO_FORM_ID}">
@@ -64,7 +63,7 @@ export const initializeFilesPage = () => {
     const block3 = document.getElementById("block3");
 
     styleMainContentBlocks(block1, block2, block3);
-    initializeTodo();
-    initializeNote();
+
+    fetchTodos();
   });
 };
