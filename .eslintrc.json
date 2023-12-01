@@ -1,0 +1,18 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020, // or another version that you're targeting
+    "sourceType": "module"
+  },
+  "plugins": ["import"],
+  "rules": {
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }]
+  }
+}
+
+
+/*
+ npm install --save-dev eslint eslint-plugin-import
+
+ ./node_modules/.bin/eslint 
+ 
+ */
