@@ -1,77 +1,67 @@
+// ./src/api/todoServer.js
 import express from "express";
-import { MongoClient, ObjectId } from "mongodb";
-import dotenv from "dotenv";
+import { ObjectId } from "mongodb";
 
-dotenv.config({ path: "./.env" });
+const router = express.Router();
 
-const todoRouter = express.Router();
-let db;
-
-const connectDB = async () => {
+router.get("/todos", async (req, res) => {
+  const todosCollection = req.db.db("list").collection("todoList");
   try {
-    const client = await MongoClient.connect(process.env.MONGODB_URL);
-    db = client.db();
-    console.log("Connected to todo MongoDB");
-  } catch (err) {
-    console.error("Failed to connect to MongoDB:", err);
-    process.exit(1);
-  }
-};
-
-connectDB();
-
-// Middleware to check if the database is connected
-todoRouter.use((req, res, next) => {
-  if (!db) {
-    return res.status(503).json({ message: "Database not available" });
-  }
-  req.db = db;
-  next();
-});
-
-// GET all todos
-todoRouter.get("/todos", async (req, res) => {
-  try {
-    const todos = await req.db.collection("todos").find().toArray();
+    const todos = await todosCollection.find({}).toArray();
     res.json(todos);
-  } catch (err) {
+  } catch (error) {
     res
       .status(500)
-      .json({ message: "Error fetching todos", error: err.message });
+      .json({ message: "Error fetching todos", error: error.message });
   }
 });
 
-// POST a new todo
-todoRouter.post("/todos", async (req, res) => {
+router.post("/todos", async (req, res) => {
+  const todosCollection = req.db.db("list").collection("todoList");
   try {
     const newTodo = {
       title: req.body.title,
-      userId: 1, // Consider dynamically setting this based on user context
       completed: false,
     };
-    const result = await req.db.collection("todos").insertOne(newTodo);
-    res.json(result.ops[0]);
-  } catch (err) {
+    const result = await todosCollection.insertOne(newTodo);
+    if (result.ops && result.ops.length > 0) {
+      res.status(201).json(result.ops[0]);
+    } else {
+      throw new Error("Insertion failed");
+    }
+  } catch (error) {
     res
       .status(500)
-      .json({ message: "Error creating todo", error: err.message });
+      .json({ message: "Error creating todo", error: error.message });
   }
 });
 
-// DELETE a specific todo
-todoRouter.delete("/todos/:id", async (req, res) => {
+router.delete("/todos/:id", async (req, res) => {
+  const todosCollection = req.db.db("list").collection("todoList");
   try {
-    const id = new ObjectId(req.params.id);
-    const result = await req.db.collection("todos").deleteOne({ _id: id });
+    const id = req.params.id;
+    console.log("Received ID for deletion:", id); // Log the received ID
+
+    // Validate the ID format
+    if (!ObjectId.isValid(id)) {
+      console.log("Invalid ID format:", id); // Log invalid ID
+      return res.status(400).json({ message: "Invalid ID format" });
+    }
+
+    const result = await todosCollection.deleteOne({ _id: new ObjectId(id) });
+    console.log("Delete result:", result); // Log the result of the delete operation
+
     if (result.deletedCount === 0) {
+      console.log("No document found with ID:", id); // Log when no document is found
       return res.status(404).json({ message: "Todo not found" });
     }
-    res.json({ message: "Todo deleted successfully" });
-  } catch (err) {
+    res.json({ message: "Todo deleted" });
+  } catch (error) {
+    console.error("Error in DELETE /todos/:id:", error); // Log the error
     res
       .status(500)
-      .json({ message: "Error deleting todo", error: err.message });
+      .json({ message: "Error deleting todo", error: error.message });
   }
 });
 
-export default todoRouter;
+export default router;
