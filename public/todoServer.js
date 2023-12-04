@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 const router = express.Router();
 
 router.get("/todos", async (req, res) => {
-  const todosCollection = req.db.db("list").collection("todoList");
+  const todosCollection = req.db("list").collection("todoList");
   try {
     const todos = await todosCollection.find({}).toArray();
     res.json(todos);
@@ -17,7 +17,7 @@ router.get("/todos", async (req, res) => {
 });
 
 router.post("/todos", async (req, res) => {
-  const todosCollection = req.db.db("list").collection("todoList");
+  const todosCollection = req.db("list").collection("todoList");
   try {
     const newTodo = {
       title: req.body.title,
@@ -37,7 +37,7 @@ router.post("/todos", async (req, res) => {
 });
 
 router.delete("/todos/:id", async (req, res) => {
-  const todosCollection = req.db.db("list").collection("todoList");
+  const todosCollection = req.db("list").collection("todoList");
   try {
     const id = req.params.id;
     console.log("Received ID for deletion:", id); // Log the received ID
