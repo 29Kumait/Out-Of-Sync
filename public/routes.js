@@ -9,10 +9,10 @@ dotenv.config({ path: "./.env" });
 const router = express.Router();
 let db;
 
-const connectDB = async () => {
+export const connectDB = async () => {
   try {
     const client = await MongoClient.connect(process.env.MONGODB_URL);
-    db = client.db();
+    db = client.db("list");
     console.log("Connected to DB-mongo");
   } catch (err) {
     console.error("Failed to connect to MongoDB:", err);
