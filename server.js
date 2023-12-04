@@ -3,9 +3,10 @@
 import express from "express";
 import { run as initializeMongoClient } from "./mongoClient.js";
 import mongodb from "mongodb";
+const { MongoClient, ObjectId } = mongodb; // Use ObjectId here
 import path from "path";
-import { fileURLToPath } from "url"; // Add this line
-const { ObjectID } = mongodb;
+import { fileURLToPath } from "url";
+
 const app = express();
 app.use(express.json());
 
@@ -41,14 +42,15 @@ initializeMongoClient()
 
     app.delete("/todos/:id", async (req, res) => {
       try {
-        const id = new ObjectID(req.params.id); // Convert to ObjectID
+        const id = new mongodb.ObjectId(req.params.id);
         const result = await todoCollection.deleteOne({ _id: id });
         if (result.deletedCount === 0) {
           return res.status(404).json({ message: "Todo not found" });
         }
         res.status(200).json({ message: "Todo deleted successfully" });
       } catch (err) {
-        res.status(500).json({ error: "Error deleting todo" });
+        console.error(err); // Log the detailed error
+        res.status(500).json({ error: err.message }); // Send back the detailed error message
       }
     });
 

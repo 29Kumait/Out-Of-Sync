@@ -38,7 +38,7 @@
 │   │   ├── fileAPI.js
 │   │   ├── newsAPI.js
 │   │   ├── rijksmuseumAPI.js
-│   │   ├── todoAPI.js
+│   │   ├── todoModified.js
 │   │   ├── weatherAPI.js
 │   │   └── weatherLonLatAPI.js
 │   ├── constants.js
