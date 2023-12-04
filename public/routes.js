@@ -2,7 +2,7 @@
 import express from "express";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import todoRoutes from "./src/api/todoServer.js";
+import todoRoutes from "./todoServer.js";
 
 dotenv.config({ path: "./.env" });
 
