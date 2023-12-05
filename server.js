@@ -3,7 +3,7 @@
 import express from "express";
 import { run as initializeMongoClient } from "./mongoClient.js";
 import mongodb from "mongodb";
-const { MongoClient, ObjectId } = mongodb; // Use ObjectId here
+const { MongoClient, ObjectId } = mongodb;
 import path from "path";
 import { fileURLToPath } from "url";
 
