@@ -1,0 +1,19 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - both  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "OUT-OF-SYNC" #Must be unique in Heroku
+        heroku_email: "kumait@gmail.com"
