@@ -1,5 +1,5 @@
 // todoPage.js:
-import {initializeNote, initializeTodo} from "../api/todoModified.js";
+import { initializeNote, initializeTodo } from "../api/todoModified.js";
 import {
   FILES_PAGE_ICON_LINK_ID,
   MAIN_ID,
@@ -43,8 +43,7 @@ export const initializeFilesPage = () => {
           <h1>✏︎✏︎✁</h1>
           <section id="block1"> 
           <form id="${TODO_FORM_ID}">
-          <input type="text" id="${
-        TODO_INPUT_ID}" placeholder="Enter your todo">
+          <input type="text" id="${TODO_INPUT_ID}" placeholder="Enter your todo">
           <button type="submit">Add</button>
           </form>
           </section>

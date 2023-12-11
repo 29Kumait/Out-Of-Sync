@@ -1,17 +1,17 @@
 // app.js
-import {USER_INTERFACE_ID} from "./src/constants.js";
+import { USER_INTERFACE_ID } from "./src/constants.js";
 import {
   attachMenuToggleListener,
   populateNavItems,
 } from "./src/pages/navPage.js";
-import {initializeMuseumPage} from "./src/pages/portraitPage.js";
-import {initializeSidebar} from "./src/pages/sidebarPage.js";
-import {initializeFilesPage} from "./src/pages/todoPage.js";
+import { initializeMuseumPage } from "./src/pages/portraitPage.js";
+import { initializeSidebar } from "./src/pages/sidebarPage.js";
+import { initializeFilesPage } from "./src/pages/todoPage.js";
 // import { fetchUserSets } from "../src/api/rijksmuseumAPI.js";
-import {initializeWeatherPage} from "./src/pages/weatherPage.js";
-import {renderFooter} from "./src/views/footerView.js";
-import {renderMain} from "./src/views/mainView.js";
-import {initializeNav} from "./src/views/navView.js";
+import { initializeWeatherPage } from "./src/pages/weatherPage.js";
+import { renderFooter } from "./src/views/footerView.js";
+import { renderMain } from "./src/views/mainView.js";
+import { initializeNav } from "./src/views/navView.js";
 
 // rest of your code...
 
@@ -20,7 +20,7 @@ const initializeApp = () => {
     const ui = document.getElementById(USER_INTERFACE_ID);
     ui.insertAdjacentHTML("beforeend", initializeNav());
 
-    const navItems = [ "Home", "About", "Contact" ];
+    const navItems = ["Home", "About", "Contact"];
     ui.insertAdjacentHTML("beforeend", renderMain());
     populateNavItems(navItems);
     attachMenuToggleListener();
@@ -37,4 +37,6 @@ const initializeApp = () => {
 };
 
 // window.onload = initializeApp;
-document.addEventListener("DOMContentLoaded", () => { initializeApp(); });
+document.addEventListener("DOMContentLoaded", () => {
+  initializeApp();
+});

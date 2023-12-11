@@ -1,10 +1,9 @@
-import {ARTWORK_SECTION_ID} from "../constants.js";
+import { ARTWORK_SECTION_ID } from "../constants.js";
 const apiKey = "eXVjKRhm";
 // const objectNumber = "SK-A-1196";
 export async function fetchArtworkImage(objectNumber) {
   try {
-    const url = `https://www.rijksmuseum.nl/api/en/collection/${
-        objectNumber}/tiles?key=${apiKey}`;
+    const url = `https://www.rijksmuseum.nl/api/en/collection/${objectNumber}/tiles?key=${apiKey}`;
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -50,8 +49,7 @@ export async function fetchArtSearch() {
   console.log("fetchArtSearch is being called");
   const query = document.getElementById("searchInput").value;
   const apiKey = "eXVjKRhm";
-  const url =
-      `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&q=${query}`;
+  const url = `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&q=${query}`;
 
   const response = await fetch(url);
   const data = await response.json();
@@ -75,8 +73,11 @@ export const displaySearchResults = (artObjects) => {
   `;
 
   const artPieceImg = document.createElement("img");
-  if (artObjects.length > 0 && artObjects[0].webImage &&
-      artObjects[0].webImage.url) {
+  if (
+    artObjects.length > 0 &&
+    artObjects[0].webImage &&
+    artObjects[0].webImage.url
+  ) {
     artPieceImg.src = artObjects[0].webImage.url;
   } else {
     //  error Handler
@@ -88,6 +89,7 @@ export const displaySearchResults = (artObjects) => {
 
   document.body.appendChild(artPieceDiv);
 
-  artPieceDiv.addEventListener(
-      "click", () => { document.body.removeChild(artPieceDiv); });
+  artPieceDiv.addEventListener("click", () => {
+    document.body.removeChild(artPieceDiv);
+  });
 };

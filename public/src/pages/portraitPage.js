@@ -1,4 +1,4 @@
-import {fetchArtSearch, fetchArtworkImage} from "../api/art.js";
+import { fetchArtSearch, fetchArtworkImage } from "../api/art.js";
 import {
   createTicker,
   fetchUserSets,

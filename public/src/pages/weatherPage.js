@@ -1,5 +1,5 @@
-import {news} from "../api/newsAPI.js";
-import {cityWeather, displayWeather} from "../api/weatherAPI.js";
+import { news } from "../api/newsAPI.js";
+import { cityWeather, displayWeather } from "../api/weatherAPI.js";
 import {
   MAIN_ID,
   NEWS_TICKER_ID,
@@ -59,8 +59,7 @@ export const initializeWeatherPage = () => {
 
   // Clear interval when navigating away from the weather page
   window.addEventListener("beforeunload", () => {
-    if (intervalId)
-      clearInterval(intervalId);
+    if (intervalId) clearInterval(intervalId);
   });
 };
 const hideTicker = () => {
