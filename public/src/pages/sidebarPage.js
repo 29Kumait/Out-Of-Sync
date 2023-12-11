@@ -1,5 +1,6 @@
+import { OPEN_BTN_ID, SIDEBAR_ID, USER_INTERFACE_ID } from "../constants.js";
 import { sidebarSetUp, styleSidebar } from "../views/sidebarView.js";
-import { USER_INTERFACE_ID, SIDEBAR_ID, OPEN_BTN_ID } from "../constants.js";
+
 import { initializeSidebarItems } from "./itemsSidebarPage.js";
 
 export const initializeSidebar = () => {
@@ -10,7 +11,7 @@ export const initializeSidebar = () => {
   initializeSidebarItems();
 
   const [sidebar, openBtn] = [SIDEBAR_ID, OPEN_BTN_ID].map((id) =>
-    document.getElementById(id)
+    document.getElementById(id),
   );
 
   sidebar.style.transition = "all 1s ease";

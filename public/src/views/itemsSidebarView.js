@@ -1,9 +1,10 @@
 import {
-  WEATHER_PAGE_ICON_LINK_ID,
-  MUSEUM_PAGE_ICON_LINK_ID,
-  LIST_PAGE_ICON_LINK_ID,
   FILES_PAGE_ICON_LINK_ID,
+  LIST_PAGE_ICON_LINK_ID,
+  MUSEUM_PAGE_ICON_LINK_ID,
+  WEATHER_PAGE_ICON_LINK_ID,
 } from "../constants.js";
+
 export const items = [
   {
     icon: "media/W.ico",
@@ -30,7 +31,7 @@ export const items = [
 ];
 
 export const createSidebarItem = (icon, alt, id) => `
-  <div class="sidebar-item" id="${id}" style="margin: 39px 0;"> 
+  <div class="sidebar-item" id="${id}" style="margin: 39px 0;">
     <img src="${icon}" alt="${alt}" />
   </div>
 `;

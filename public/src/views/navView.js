@@ -1,5 +1,5 @@
 // views/navView.js
-import { NAV_ID, MENU_TOGGLE_ID, NAV_LIST_ID } from "../constants.js";
+import { MENU_TOGGLE_ID, NAV_ID, NAV_LIST_ID } from "../constants.js";
 
 export const initializeNav = () => {
   return `

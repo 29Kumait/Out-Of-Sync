@@ -1,17 +1,17 @@
 // app.js
-import { initializeNav } from "./src/views/navView.js";
+import { USER_INTERFACE_ID } from "./src/constants.js";
 import {
   attachMenuToggleListener,
   populateNavItems,
 } from "./src/pages/navPage.js";
+import { initializeMuseumPage } from "./src/pages/portraitPage.js";
 import { initializeSidebar } from "./src/pages/sidebarPage.js";
-import { USER_INTERFACE_ID } from "./src/constants.js";
-import { renderMain } from "./src/views/mainView.js";
-import { renderFooter } from "./src/views/footerView.js";
+import { initializeFilesPage } from "./src/pages/todoPage.js";
 // import { fetchUserSets } from "../src/api/rijksmuseumAPI.js";
 import { initializeWeatherPage } from "./src/pages/weatherPage.js";
-import { initializeMuseumPage } from "./src/pages/portraitPage.js";
-import { initializeFilesPage } from "./src/pages/todoPage.js";
+import { renderFooter } from "./src/views/footerView.js";
+import { renderMain } from "./src/views/mainView.js";
+import { initializeNav } from "./src/views/navView.js";
 
 // rest of your code...
 

@@ -1,4 +1,4 @@
-import { TODO_FORM_ID, TODO_INPUT_ID, TODO_DISPLAY_ID } from "../constants.js";
+import { TODO_DISPLAY_ID, TODO_FORM_ID, TODO_INPUT_ID } from "../constants.js";
 
 const apiUrl = "http://localhost:5000/todos";
 

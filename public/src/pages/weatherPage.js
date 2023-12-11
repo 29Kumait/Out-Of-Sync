@@ -1,13 +1,13 @@
+import { news } from "../api/newsAPI.js";
+import { cityWeather, displayWeather } from "../api/weatherAPI.js";
 import {
   MAIN_ID,
-  WEATHER_PAGE_ICON_LINK_ID,
-  TEMPERATURE_DISPLAY_ID,
-  TEMPERATURE_CITY_ID,
-  WEATHER_RESULT_ID,
   NEWS_TICKER_ID,
+  TEMPERATURE_CITY_ID,
+  TEMPERATURE_DISPLAY_ID,
+  WEATHER_PAGE_ICON_LINK_ID,
+  WEATHER_RESULT_ID,
 } from "../constants.js";
-import { displayWeather, cityWeather } from "../api/weatherAPI.js";
-import { news } from "../api/newsAPI.js";
 
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
@@ -23,7 +23,8 @@ export const initializeWeatherPage = () => {
     //   document.body.style.backgroundImage = isWeatherPage
     //     ? "url('public/img1.png')"
     //     : "url('public/rain.WEBP')";
-    //   isWeatherPage = !isWeatherPage; // Toggle the isDay flag every 3 seconds
+    //   isWeatherPage = !isWeatherPage; // Toggle the isDay flag every 3
+    //   seconds
     // }, 9000);
 
     const weatherPage = `
@@ -31,14 +32,14 @@ export const initializeWeatherPage = () => {
         <h1>Current Temperature</h1>
         <section id="${TEMPERATURE_DISPLAY_ID}">
         </section>
-        
+
         <h1>City Temperature</h1>
         <section id="${TEMPERATURE_CITY_ID}">
           <input type="text" id="city-input" placeholder="Your City">
           <button id="fetch-weather-btn">Fetch Weather</button>
           <div id="${WEATHER_RESULT_ID}"></div>
         </section>
-        
+
         <section>
           <div id="${NEWS_TICKER_ID}"></div>
         </section>

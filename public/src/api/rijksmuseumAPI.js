@@ -17,7 +17,7 @@ export async function fetchUserSets(page = 1) {
       .map((userSet) =>
         userSet.name && userSet.user && userSet.user.name
           ? `• ${userSet.name} by ${userSet.user.name} | `
-          : ""
+          : "",
       )
       .filter(Boolean);
   } catch (error) {
