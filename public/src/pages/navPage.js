@@ -1,5 +1,5 @@
 // navPage.js
-import { NAV_LIST_ID, MENU_TOGGLE_ID, MAIN_ID } from "../constants.js";
+import {MAIN_ID, MENU_TOGGLE_ID, NAV_LIST_ID} from "../constants.js";
 
 export const populateNavItems = (navItems) => {
   const ulElement = document.getElementById(NAV_LIST_ID);
@@ -10,18 +10,16 @@ export const populateNavItems = (navItems) => {
       liElement.innerHTML = `<a class="nav-link" href="#">${item}</a>`;
 
       liElement.addEventListener(
-        // liElement.addEventListener("click", function () {
-        //   if (item === "Home") {
-        //     goHome();
-        //     document.body.style.backgroundImage = "url('../public/fetch.png')";
-        //   }
-        // });
-        "click",
-        () =>
-          item === "Home" &&
-          (goHome(),
-          (document.body.style.backgroundImage = "url('media/mes.png')"))
-      );
+          // liElement.addEventListener("click", function () {
+          //   if (item === "Home") {
+          //     goHome();
+          //     document.body.style.backgroundImage =
+          //     "url('../public/fetch.png')";
+          //   }
+          // });
+          "click", () => item === "Home" &&
+                         (goHome(), (document.body.style.backgroundImage =
+                                         "url('media/mes.png')")));
       ulElement.appendChild(liElement);
     });
   }

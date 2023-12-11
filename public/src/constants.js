@@ -1,4 +1,4 @@
-//constants.js;
+// constants.js;
 export const USER_INTERFACE_ID = "user-interface";
 
 export const NAV_ID = "nav";

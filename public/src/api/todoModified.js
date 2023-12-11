@@ -1,4 +1,4 @@
-import { TODO_FORM_ID, TODO_INPUT_ID, TODO_DISPLAY_ID } from "../constants.js";
+import {TODO_DISPLAY_ID, TODO_FORM_ID, TODO_INPUT_ID} from "../constants.js";
 
 const apiUrl = "http://localhost:5000/todos";
 
@@ -18,9 +18,8 @@ const createTodoElement = (todo) => {
     <p>${todo.title}</p>
     <button data-todo-id="${todo._id}" class="delete-btn">Delete</button>
   `;
-  todoElement.querySelector(".delete-btn").addEventListener("click", () => {
-    deleteTodo(todo._id);
-  });
+  todoElement.querySelector(".delete-btn")
+      .addEventListener("click", () => { deleteTodo(todo._id); });
   return todoElement;
 };
 
@@ -37,11 +36,11 @@ export const fetchTodos = async () => {
 export const addTodo = async (title) => {
   try {
     const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+      method : "POST",
+      headers : {
+        "Content-Type" : "application/json",
       },
-      body: JSON.stringify({ title }),
+      body : JSON.stringify({title}),
     });
     if (response.ok) {
       fetchTodos();
@@ -54,7 +53,7 @@ export const addTodo = async (title) => {
 export const deleteTodo = async (id) => {
   try {
     const response = await fetch(`${apiUrl}/${id}`, {
-      method: "DELETE",
+      method : "DELETE",
     });
     if (response.ok) {
       fetchTodos();
@@ -64,15 +63,13 @@ export const deleteTodo = async (id) => {
   }
 };
 
-export const initializeTodo = () => {
-  fetchTodos();
-};
+export const initializeTodo = () => { fetchTodos();};
 
 export const initializeNote = () => {
   const todoForm = document.getElementById(TODO_FORM_ID);
   const todoInput = document.getElementById(TODO_INPUT_ID);
 
-  todoForm.addEventListener("submit", function (event) {
+  todoForm.addEventListener("submit", function(event) {
     event.preventDefault();
     const newTodo = todoInput.value.trim();
     if (newTodo) {

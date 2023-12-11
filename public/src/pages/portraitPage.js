@@ -1,15 +1,15 @@
+import {fetchArtSearch, fetchArtworkImage} from "../api/art.js";
 import {
-  MUSEUM_PAGE_ICON_LINK_ID,
-  MAIN_ID,
-  ARTWORK_SECTION_ID,
-  USER_SETS_ID,
-} from "../constants.js";
-import { fetchArtworkImage, fetchArtSearch } from "../api/art.js";
-import {
+  createTicker,
   fetchUserSets,
   userSets,
-  createTicker,
 } from "../api/rijksmuseumAPI.js";
+import {
+  ARTWORK_SECTION_ID,
+  MAIN_ID,
+  MUSEUM_PAGE_ICON_LINK_ID,
+  USER_SETS_ID,
+} from "../constants.js";
 
 function createMuseumPage(contentMain) {
   contentMain.innerHTML = "";

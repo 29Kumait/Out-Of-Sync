@@ -1,13 +1,13 @@
+import {news} from "../api/newsAPI.js";
+import {cityWeather, displayWeather} from "../api/weatherAPI.js";
 import {
   MAIN_ID,
-  WEATHER_PAGE_ICON_LINK_ID,
-  TEMPERATURE_DISPLAY_ID,
-  TEMPERATURE_CITY_ID,
-  WEATHER_RESULT_ID,
   NEWS_TICKER_ID,
+  TEMPERATURE_CITY_ID,
+  TEMPERATURE_DISPLAY_ID,
+  WEATHER_PAGE_ICON_LINK_ID,
+  WEATHER_RESULT_ID,
 } from "../constants.js";
-import { displayWeather, cityWeather } from "../api/weatherAPI.js";
-import { news } from "../api/newsAPI.js";
 
 export const initializeWeatherPage = () => {
   const pageContent = document.getElementById(WEATHER_PAGE_ICON_LINK_ID);
@@ -23,7 +23,8 @@ export const initializeWeatherPage = () => {
     //   document.body.style.backgroundImage = isWeatherPage
     //     ? "url('public/img1.png')"
     //     : "url('public/rain.WEBP')";
-    //   isWeatherPage = !isWeatherPage; // Toggle the isDay flag every 3 seconds
+    //   isWeatherPage = !isWeatherPage; // Toggle the isDay flag every 3
+    //   seconds
     // }, 9000);
 
     const weatherPage = `
@@ -58,7 +59,8 @@ export const initializeWeatherPage = () => {
 
   // Clear interval when navigating away from the weather page
   window.addEventListener("beforeunload", () => {
-    if (intervalId) clearInterval(intervalId);
+    if (intervalId)
+      clearInterval(intervalId);
   });
 };
 const hideTicker = () => {

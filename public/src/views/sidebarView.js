@@ -1,5 +1,5 @@
 // sidebarView.js
-import { OPEN_BTN_ID, SIDEBAR_ID } from "../constants.js";
+import {OPEN_BTN_ID, SIDEBAR_ID} from "../constants.js";
 export const sidebarSetUp = () => `
   <div id="${SIDEBAR_ID}" class="sidebar"></div>
   <button id="${OPEN_BTN_ID}">

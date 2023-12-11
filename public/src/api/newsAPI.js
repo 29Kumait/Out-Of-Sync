@@ -1,7 +1,9 @@
-import { NEWS_TICKER_ID } from "../constants.js";
+import {NEWS_TICKER_ID} from "../constants.js";
 
 const API_KEY = "2a99a0a58a7a424f950e1a62bbed2546";
-const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news,the-verge&apiKey=${API_KEY}`;
+const url =
+    `https://newsapi.org/v2/top-headlines?sources=bbc-news,the-verge&apiKey=${
+        API_KEY}`;
 
 let headlines = [];
 let tickerPosition = 0;
@@ -21,7 +23,8 @@ const fetchHeadlines = async () => {
 
 const updateTicker = () => {
   const tickerElement = document.getElementById(NEWS_TICKER_ID);
-  if (!tickerElement || headlines.length === 0) return;
+  if (!tickerElement || headlines.length === 0)
+    return;
 
   let displayedHeadline = headlines[tickerPosition % headlines.length];
   tickerElement.innerText = ` 🗽 🗞️ : \n • ${displayedHeadline}.`;
@@ -41,5 +44,6 @@ export const news = async () => {
 };
 
 export const clearNewsInterval = () => {
-  if (intervalId) clearInterval(intervalId);
+  if (intervalId)
+    clearInterval(intervalId);
 };

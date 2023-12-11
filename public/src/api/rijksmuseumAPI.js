@@ -1,9 +1,10 @@
-import { USER_SETS_ID } from "../constants.js";
+import {USER_SETS_ID} from "../constants.js";
 
 export async function fetchUserSets(page = 1) {
   const apiKey = "eXVjKRhm";
   try {
-    const url = `https://www.rijksmuseum.nl/api/en/usersets?key=${apiKey}&format=json&page=${page}`;
+    const url = `https://www.rijksmuseum.nl/api/en/usersets?key=${
+        apiKey}&format=json&page=${page}`;
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -14,12 +15,10 @@ export async function fetchUserSets(page = 1) {
 
     const data = await response.json();
     return data.userSets
-      .map((userSet) =>
-        userSet.name && userSet.user && userSet.user.name
-          ? `• ${userSet.name} by ${userSet.user.name} | `
-          : ""
-      )
-      .filter(Boolean);
+        .map((userSet) => userSet.name && userSet.user && userSet.user.name
+                              ? `• ${userSet.name} by ${userSet.user.name} | `
+                              : "")
+        .filter(Boolean);
   } catch (error) {
     console.error(" Error: ", error);
     throw error;
@@ -59,7 +58,8 @@ function startScrolling(tickerContainer, userSets) {
 
 export const userSets = async (tickerContainer) => {
   const userSets = await fetchUserSets();
-  if (!userSets) return;
+  if (!userSets)
+    return;
 
   startScrolling(tickerContainer, userSets);
 };
