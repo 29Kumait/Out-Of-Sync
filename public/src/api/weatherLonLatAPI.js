@@ -24,7 +24,8 @@
 //     const updateUI = (latitude, longitude, temperature) => {
 //       const resultDiv = document.getElementById(LON_LAT_RESULT_ID);
 //       if (resultDiv) {
-//         resultDiv.innerHTML = `The temperature at latitude ${latitude} and longitude ${longitude} is ${temperature}°C.`;
+//         resultDiv.innerHTML = `The temperature at latitude ${latitude} and
+//         longitude ${longitude} is ${temperature}°C.`;
 //       } else {
 //         console.error("No resultDiv found");
 //       }
@@ -37,8 +38,10 @@
 //         const latitude = document.getElementById(LATITUDE_INPUT_ID).value;
 //         const longitude = document.getElementById(LONGITUDE_INPUT_ID).value;
 
-//         const savedCoordinatesDiv = document.getElementById("savedCoordinates");
-//         savedCoordinatesDiv.innerHTML = `Saved Latitude: ${latitude}, Saved Longitude: ${longitude}`;
+//         const savedCoordinatesDiv =
+//         document.getElementById("savedCoordinates");
+//         savedCoordinatesDiv.innerHTML = `Saved Latitude: ${latitude}, Saved
+//         Longitude: ${longitude}`;
 
 //         if (!latitude || !longitude) {
 //           console.error("Both latitude and longitude must be provided");
@@ -52,7 +55,8 @@
 //   });
 // // };
 // export async function weatherLatLon(lat, lon) {
-//   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`;
+//   const url =
+//   `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`;
 
 //   try {
 //     const response = await fetch(url);

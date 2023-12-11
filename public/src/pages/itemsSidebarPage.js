@@ -7,7 +7,7 @@ export const initializeSidebarItems = () => {
   items.forEach((item) => {
     sidebar.insertAdjacentHTML(
       "beforeend",
-      createSidebarItem(item.icon, item.alt, item.id)
+      createSidebarItem(item.icon, item.alt, item.id),
     );
   });
 

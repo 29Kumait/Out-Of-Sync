@@ -1,7 +1,7 @@
 import {
-  TEMPERATURE_DISPLAY_ID,
-  FETCH_WEATHER_BTN_ID,
   CITY_INPUT_ID,
+  FETCH_WEATHER_BTN_ID,
+  TEMPERATURE_DISPLAY_ID,
   WEATHER_RESULT_ID,
 } from "../constants.js";
 
@@ -9,7 +9,7 @@ import {
 async function fetchWeather() {
   try {
     const response = await fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=52.15&longitude=5.35&hourly=temperature_2m,rain,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,apparent_temperature_max&current_weather=true&past_days=1&forecast_days=3&timezone=Europe%2FBerlin"
+      "https://api.open-meteo.com/v1/forecast?latitude=52.15&longitude=5.35&hourly=temperature_2m,rain,weathercode,windspeed_10m&daily=weathercode,temperature_2m_max,apparent_temperature_max&current_weather=true&past_days=1&forecast_days=3&timezone=Europe%2FBerlin",
     );
     if (!response.ok) {
       throw new Error("Failed to fetch weather data");
@@ -44,7 +44,7 @@ export async function fetchWeatherData(city) {
   const API_KEY = "9fb7eaa1d74f42cd16922223a39b68f9";
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch weather data");
