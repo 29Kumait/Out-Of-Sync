@@ -41,7 +41,7 @@ export const initializeFilesPage = () => {
 
 
           <h1>✏︎✏︎✁</h1>
-          <section id="block1"> 
+          <section id="block1">
           <form id="${TODO_FORM_ID}">
           <input type="text" id="${TODO_INPUT_ID}" placeholder="Enter your todo">
           <button type="submit">Add</button>
@@ -49,7 +49,7 @@ export const initializeFilesPage = () => {
           </section>
 
           <h1></h1>
-          <section id="block2"> 
+          <section id="block2">
           <div id="${TODO_DISPLAY_ID}"></div>
           </section>
 

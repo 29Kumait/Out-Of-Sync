@@ -31,7 +31,7 @@ export const items = [
 ];
 
 export const createSidebarItem = (icon, alt, id) => `
-  <div class="sidebar-item" id="${id}" style="margin: 39px 0;"> 
+  <div class="sidebar-item" id="${id}" style="margin: 39px 0;">
     <img src="${icon}" alt="${alt}" />
   </div>
 `;

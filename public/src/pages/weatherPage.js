@@ -32,14 +32,14 @@ export const initializeWeatherPage = () => {
         <h1>Current Temperature</h1>
         <section id="${TEMPERATURE_DISPLAY_ID}">
         </section>
-        
+
         <h1>City Temperature</h1>
         <section id="${TEMPERATURE_CITY_ID}">
           <input type="text" id="city-input" placeholder="Your City">
           <button id="fetch-weather-btn">Fetch Weather</button>
           <div id="${WEATHER_RESULT_ID}"></div>
         </section>
-        
+
         <section>
           <div id="${NEWS_TICKER_ID}"></div>
         </section>
